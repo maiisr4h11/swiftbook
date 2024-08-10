@@ -33,26 +33,33 @@ function FoodFest() {
                 <div className='container mt-5 mb-5'>
                     <div class="row" data-aos="fade-up">
                         <div class="col-md-4">
-                            <div class="card">
+                            <div class="card text-center">
                                 <div class="card-body">
-                                    <h5 class="card-title">Item 1</h5>
+                                    <img className='card-img-top' src='images/poster-1.png'></img>
+                                    <h5 class="card-title text-center mt-2 fs-4">Street Food Festival</h5>
                                     <p class="card-text">Some text for item 1</p>
+                                    <div className='btn btn-primary text-center'>View Details</div>
                                 </div>
+                                
                             </div>
                         </div>
                         <div class="col-md-4">
-                            <div class="card">
+                            <div class="card text-center">
                                 <div class="card-body">
-                                    <h5 class="card-title">Item 2</h5>
+                                <img className='card-img-top' src='images/poster-2.png'></img>
+                                    <h5 class="card-title text-center mt-2 fs-4">Night Market</h5>
                                     <p class="card-text">Some text for item 2</p>
+                                    <div className='btn btn-primary text-center'>View Details</div>
                                 </div>
                             </div>
                         </div>
                         <div class="col-md-4">
-                            <div class="card">
+                            <div class="card text-center">
                                 <div class="card-body">
-                                    <h5 class="card-title">Item 3</h5>
+                                <img className='card-img-top' src='images/poster-3.png'></img>
+                                    <h5 class="card-title text-center mt-2 fs-4">Pop-up Market</h5>
                                     <p class="card-text">Some text for item 3</p>
+                                    <div className='btn btn-primary text-center'>View Details</div>
                                 </div>
                             </div>
                         </div>
