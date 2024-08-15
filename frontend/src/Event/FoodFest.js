@@ -7,7 +7,7 @@ function FoodFest() {
     useEffect(() => {
         // Initialize AOS
         AOS.init({
-            duration: 1200, // Customize the duration if needed
+            duration: 2000, // Customize the duration if needed
         });
     }, []); // Empty dependency array ensures this runs once when the component mounts
 
@@ -35,7 +35,7 @@ function FoodFest() {
                         <div class="col-md-4">
                             <div class="card text-center">
                                 <div class="card-body">
-                                    <img className='card-img-top' src='images/poster-1.png'></img>
+                                    <img className='card-img-top' src='images/poster-1.png' alt=''></img>
                                     <h5 class="card-title text-center mt-2 fs-4">Street Food Festival</h5>
                                     <p class="card-text">Some text for item 1</p>
                                     <div className='btn btn-primary text-center'>View Details</div>
@@ -46,7 +46,7 @@ function FoodFest() {
                         <div class="col-md-4">
                             <div class="card text-center">
                                 <div class="card-body">
-                                <img className='card-img-top' src='images/poster-2.png'></img>
+                                <img className='card-img-top' src='images/poster-2.png'alt=''></img>
                                     <h5 class="card-title text-center mt-2 fs-4">Night Market</h5>
                                     <p class="card-text">Some text for item 2</p>
                                     <div className='btn btn-primary text-center'>View Details</div>
@@ -56,7 +56,7 @@ function FoodFest() {
                         <div class="col-md-4">
                             <div class="card text-center">
                                 <div class="card-body">
-                                <img className='card-img-top' src='images/poster-3.png'></img>
+                                <img className='card-img-top' src='images/poster-3.png'alt=''></img>
                                     <h5 class="card-title text-center mt-2 fs-4">Pop-up Market</h5>
                                     <p class="card-text">Some text for item 3</p>
                                     <div className='btn btn-primary text-center'>View Details</div>
