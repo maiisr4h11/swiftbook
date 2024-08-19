@@ -1,0 +1,91 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+
+}
+
+.forms-container .login-panel {
+    background-color: #7c90a6 !important;
+}
+
+/* Login.css */
+
+/* img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+} */
+
+
+/* Mobile styles (max-width: 600px) */
+@media (max-width: 600px) {
+    .container {
+        padding: 20px;
+    }
+
+    .form-container {
+        flex-direction: column;
+        padding: 15px;
+        width: 100%;
+        /* Full width on mobile */
+    }
+
+    .image-container {
+        display: none;
+        /* Hide image on mobile */
+    }
+
+    .d-flex {
+        width: 100%;
+        /* Ensure form takes full width */
+        padding: 10px;
+    }
+
+    .btn {
+        font-size: 1rem;
+        /* Adjust button size */
+    }
+}
+
+/* Tablet styles (max-width: 768px) */
+@media (max-width: 768px) {
+    .container {
+        padding: 30px;
+    }
+
+    .form-container {
+        padding: 20px;
+        width: 90%;
+        /* Slightly smaller width on tablets */
+    }
+
+    .image-container {
+        display: none;
+        /* Optional: hide image on smaller tablets */
+    }
+
+    .d-flex {
+        width: 100%;
+    }
+
+    .btn {
+        font-size: 1.2rem;
+    }
+}
+
+/* Larger screens */
+@media (min-width: 769px) {
+    .form-container {
+        width: 50%;
+    }
+
+    .image-container {
+        width: 50%;
+    }
+
+    .d-flex {
+        width: 100%;
+    }
+}
