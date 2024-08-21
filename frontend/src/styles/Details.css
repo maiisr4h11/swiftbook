@@ -1,0 +1,53 @@
+/* Center location information */
+.detailsAddress {
+  display: block;
+  text-align: center;
+  font-size: 1.2rem;
+}
+
+/* Style for inline lists */
+.inline-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: justify;
+  padding: 0;
+  margin: 0;
+}
+
+.inline-item {
+  margin: 0 15px;
+  font-size: 1rem;
+}
+
+/* Style for the "Book Now" button */
+.detailsPrice .btn {
+  width: 100%;
+  max-width: 400px; /* Optional: Adjust if needed */
+  margin: 0 auto;
+}
+
+/* Ensure no space between images */
+.gallery-img {
+  width: 100%;
+  height: auto;
+  cursor: pointer;
+}
+
+/* Style for the modal image */
+.modal-content {
+  border: none;
+  border-radius: 0;
+}
+
+.modal-body {
+  padding: 0;
+}
+
+.full-page-img {
+  width: 100%;
+  height: auto;
+  max-height: 80vh; /* Adjust as needed */
+  object-fit: contain; /* Ensures image maintains aspect ratio */
+}
+
+
