@@ -27,20 +27,20 @@ body {
 } */
 
 
-.card {
+.card.foodfest {
     transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth transition for transform and shadow */
     position: relative; /* For z-index to work */
     z-index: 1; /* Default z-index */
 }
 
-.card:hover {
+.card.foodfest:hover {
     transform: scale(1.05); /* Slightly enlarge the card */
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Add shadow for depth effect */
     z-index: 2; /* Bring the card to the front */
 }
 
 /* Optional: Change card color on hover */
-.card:hover .card-body {
+.card.foodfest:hover .card-body {
     background-color: #f8f9fa; /* Change background color on hover */
 }
 
