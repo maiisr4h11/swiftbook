@@ -27,7 +27,7 @@ app.use((err, req, res, next) => {
   });
 
   const foodFestRoutes = require('./routes/foodfestroute');
-  app.use('/api', foodFestRoutes);
+  app.use('/api/foodfest', foodFestRoutes);
 // Connect to MongoDB and start the server
 // Connect to MongoDB using the URI from environment variables
 mongoose
