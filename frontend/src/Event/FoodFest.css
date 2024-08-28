@@ -3,6 +3,7 @@
 body {
     font-family: 'Poppins', sans-serif;
 }
+
 .banner {
     background-size: cover;
     background-position: center;
@@ -43,4 +44,14 @@ body {
 .card.foodfest:hover .card-body {
     background-color: #f8f9fa; /* Change background color on hover */
 }
+
+.search-input {
+    /* background-color: #2c2c2c; */
+    color: #fff;
+}
+
+.search-input::placeholder {
+    color: #fff;
+}
+
 
