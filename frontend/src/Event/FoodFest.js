@@ -1,4 +1,6 @@
 import React, { useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import axios from 'axios'; // Import Axios
 import './FoodFest.css';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
@@ -9,6 +11,7 @@ function FoodFest() {
     const [location, setLocation] = useState('');
     const [startDate, setStartDate] = useState('');
     const [foodfests, setFoodfests] = useState([]);
+    const navigate = useNavigate();
 
     const locations = ['San Jacinto, USA', 'Los Angeles, USA', 'New York, USA']; // Example locations
 
@@ -18,16 +21,19 @@ function FoodFest() {
             duration: 2000, // Customize the duration if needed
         });
 
-        // Fetch foodfest data from backend
-        fetch('http://localhost:5000/api')
-            .then(response => response.json())
-            .then(data => setFoodfests(data))
+        // Fetch foodfest data from backend using Axios
+        axios.get('http://localhost:5000/api/foodfest')
+            .then(response => setFoodfests(response.data))
             .catch(error => console.error('Error fetching data:', error));
     }, []);
 
     const handleEventNameChange = (e) => setEventName(e.target.value);
     const handleLocationChange = (e) => setLocation(e.target.value);
     const handleDateChange = (e) => setStartDate(e.target.value);
+
+    const handleViewDetails = (id) => {
+        navigate(`/booking-details/${id}`);
+    };
 
     return (
         <div>
@@ -103,15 +109,19 @@ function FoodFest() {
             <section className='event-list'>
                 <div className='container mt-5 mb-5'>
                     <div className="row" data-aos="fade-up">
-                        {foodfests.map((foodfest, index) => (
-                            <div className="col-md-3" key={index}>
+                        {foodfests.map((foodfest) => (
+                            <div className="col-md-3" key={foodfest._id}>
                                 <div className="card text-center mb-4 foodfest">
                                     <div className="card-body">
                                         <img className='card-img-top' src={foodfest.image} alt={foodfest.eventname}></img>
                                         <h5 className="card-title text-center mt-2 fs-4">{foodfest.eventname}</h5>
-                                        {/* <p className="card-text">{foodfest.location}</p> */}
                                         <p className="card-text">{foodfest.date}</p> {/* Add more p tags as needed */}
-                                        <div className='btn btn-primary text-center'>View Details</div>
+                                        <button
+                                            className='btn btn-primary text-center'
+                                            onClick={() => handleViewDetails(foodfest._id)}
+                                        >
+                                            View Details
+                                        </button>
                                     </div>
                                 </div>
                             </div>
