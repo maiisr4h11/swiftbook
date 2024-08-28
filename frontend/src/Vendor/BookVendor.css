@@ -3,3 +3,7 @@
 .container .vendor{
 background-color: blue;
 }
+.custom-img-size {
+    width: 150%; /* Adjust the width as needed */
+    height: auto; /* Maintain aspect ratio */
+  }
