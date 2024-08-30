@@ -1,0 +1,98 @@
+/* ReservationSummary.css */
+
+.reservation-summary-container {
+  max-width: 80%; /* Adjust width of the container */
+  margin: auto;
+}
+
+.card {
+  border-radius: 12px;
+}
+
+.card-body {
+  background-color: #ffffff;
+}
+
+.card-title {
+  font-size: 1.75rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
+}
+
+.card-text {
+  font-size: 1.1rem;
+  margin-bottom: 0.5rem;
+}
+
+.btn-primary, .btn-danger {
+  font-size: 0.875rem; /* Smaller font size for buttons */
+  padding: 0.5rem 1rem; /* Adjust padding for smaller buttons */
+}
+
+.btn-primary:hover, .btn-danger:hover {
+  opacity: 0.8;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.mt-5 {
+  margin-top: 3rem;
+}
+
+.mt-3 {
+  margin-top: 1rem;
+}
+
+.shadow-lg {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.d-flex {
+  display: flex;
+}
+
+.align-items-center {
+  align-items: center;
+}
+
+.ms-3 {
+  margin-left: 1rem;
+}
+
+.mb-2 {
+  margin-bottom: 0.5rem;
+}
+
+.button-group {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.5rem; /* Adjust the gap between buttons */
+}
+
+.card-body .row {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.col-md-8 {
+  margin-bottom: 1rem; /* Add some spacing below the text area */
+}
+
+.cancellation-policy {
+  background-color: #f8f9fa;
+  border: 1px solid #e9ecef;
+  border-radius: 8px;
+  padding: 1rem;
+}
+
+.cancellation-policy h6 {
+  font-size: 1.1rem;
+  font-weight: bold;
+}
+
+.cancellation-policy p {
+  font-size: 0.875rem;
+}
