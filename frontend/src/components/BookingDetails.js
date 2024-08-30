@@ -2,38 +2,50 @@ import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import axios from "axios";
 import "../CSS/BookVendor.css";
+import "../CSS/Modal.css"; // Import Modal CSS
 import CalendarTodayIcon from "@mui/icons-material/CalendarToday";
 import LocationOnIcon from "@mui/icons-material/LocationOn";
 import AlarmIcon from "@mui/icons-material/Alarm";
 import CheckCircleOutlineIcon from "@mui/icons-material/CheckCircleOutline";
 import AttachMoneyIcon from "@mui/icons-material/AttachMoney";
+import Modal from "./Modal"; // Import the Modal component
+import { useNavigate } from "react-router-dom";
 
 function BookingDetails() {
-  const { id } = useParams(); // Get the event ID from URL params
+  const { id } = useParams();
   const [eventDetails, setEventDetails] = useState(null);
-
+  const [showModal, setShowModal] = useState(false);
+  const navigate = useNavigate();  
   useEffect(() => {
-    // Fetch event details from backend
-    axios.get(`http://localhost:5000/api/foodfest/${id}`)
-      .then(response => setEventDetails(response.data))
-      .catch(error => console.error('Error fetching event details:', error));
+    axios
+      .get(`http://localhost:5000/api/foodfest/${id}`)
+      .then((response) => setEventDetails(response.data))
+      .catch((error) => console.error("Error fetching event details:", error));
   }, [id]);
 
   if (!eventDetails) {
-    return <div>Loading...</div>; // You can also use a spinner or placeholder
+    return (
+      <div
+        className="d-flex justify-content-center align-items-center"
+        style={{ height: "100vh" }}
+      >
+        <div className="spinner-border " role="status">
+          <span className="sr-only"></span>
+        </div>
+      </div>
+    );
   }
-
+  const handleBookNow = () => {
+    navigate("/book-vendor", { state: eventDetails }); 
+  };
   return (
     <div>
       <section className="py-0">
         <div className="container mt-5 mb-4">
-          {/* Card START */}
           <div className="card bg-light overflow-hidden px-sm-5">
             <div className="row align-items-center g-4">
-              {/* Content */}
               <div className="col-sm-9">
                 <div className="card-body">
-                  {/* Breadcrumb */}
                   <nav aria-label="breadcrumb">
                     <ol className="breadcrumb breadcrumb-dots mb-0">
                       <li className="breadcrumb-item">
@@ -45,7 +57,6 @@ function BookingDetails() {
                       <li className="breadcrumb-item active">Booking</li>
                     </ol>
                   </nav>
-                  {/* Title */}
                   <h1 className="m-0 h2 card-title mt-2" id="title">
                     Vendor Booking Details
                   </h1>
@@ -53,14 +64,12 @@ function BookingDetails() {
               </div>
             </div>
           </div>
-          {/* Card END */}
         </div>
-        {/* left side content */}
+
         <div className="container">
           <div className="row">
             <div className="col-lg-8">
               <div className="card shadow rounded-2">
-                {/* card header  */}
                 <div className="card-header border-bottom d-flex align-items-center">
                   <CalendarTodayIcon
                     fontSize="medium"
@@ -68,10 +77,8 @@ function BookingDetails() {
                   />
                   <h4 className="card-title mb-0">Event Details</h4>
                 </div>
-                {/* card body */}
                 <div className="card-body">
                   <div className="row align-items-center">
-                    {/* Image */}
                     <div className="col-sm-6 col-md-3">
                       <img
                         src={eventDetails.image}
@@ -79,11 +86,8 @@ function BookingDetails() {
                         alt={eventDetails.eventname}
                       />
                     </div>
-
-                    {/* Card Body */}
                     <div className="col-sm-6 col-md-9">
                       <div className="card-body pt-3 pt-sm-0 p-0">
-                        {/* Title */}
                         <h5 className="card-title">{eventDetails.eventname}</h5>
                         <p className="small mb-2">
                           <LocationOnIcon style={{ marginRight: "4px" }} />
@@ -92,7 +96,6 @@ function BookingDetails() {
                       </div>
                     </div>
                     <div className="row g-4">
-                      {/* Item 1 */}
                       <div className="col-lg-4">
                         <div className="bg-light py-3 px-4 rounded-3">
                           <h6 className="fw-light small mb-1">Event Date</h6>
@@ -103,14 +106,14 @@ function BookingDetails() {
                           </small>
                         </div>
                       </div>
-
-                      {/* Item 2 */}
                       <div className="col-lg-4">
                         <div className="bg-light py-3 px-4 rounded-3">
                           <h6 className="fw-light small mb-1">
                             Vendor Available
                           </h6>
-                          <h5 className="mb-1">{eventDetails.totalvendors} vendors</h5>
+                          <h5 className="mb-1">
+                            {eventDetails.totalvendors} vendors
+                          </h5>
                           <small>
                             <CheckCircleOutlineIcon
                               style={{ marginRight: "4px" }}
@@ -119,8 +122,6 @@ function BookingDetails() {
                           </small>
                         </div>
                       </div>
-
-                      {/* Item 3 */}
                       <div className="col-lg-4">
                         <div className="bg-light py-3 px-4 rounded-3">
                           <h6 className="fw-light small mb-1">Booking Price</h6>
@@ -136,48 +137,60 @@ function BookingDetails() {
                 </div>
               </div>
               <div className="card border mt-4 mb-4">
-                {/* Card header */}
                 <div className="card-header border-bottom d-md-flex justify-content-md-between">
-                  <h5 className="card-title mb-0">
-                    What you will get
-                  </h5>
-                  <a href="#" className="btn btn-link p-0 mb-0">
-                    View Cancellation Policy
-                  </a>
+                  <h4 className="card-title mb-0">About this event</h4>
                 </div>
+                <div className="container list-group list-group-borderless">
+                  <div className="col-md-12 p-3 ">
+                    {/* <h4>Event Details</h4> */}
 
-                {/* Card body */}
-                <div className="card-body">
-                  <h6>Price Included</h6>
-                  {/* List */}
-                  <ul className="list-group list-group-borderless mb-0">
+                    <p className="text-align-justify">
+                      {eventDetails.eventdetails}
+                    </p>
+                    {/* <ul className="list-group list-group-borderless mb-0">
                     <li className="list-group-item h6 fw-light d-flex mb-0">
-                      <i className="bi bi-patch-check-fill text-success me-2"></i>
-                      Booth size : 3m x 6m
+                      <i className="bi bi-patch-check-fill text-success me-2 fs-5"></i>
+                      {eventDetails.eventdetails}
                     </li>
-                    <li className="list-group-item h6 fw-light d-flex mb-0">
-                      <i className="bi bi-patch-check-fill text-success me-2"></i>
-                      Free 3pcs Exhibitor Pass (With Lanyard) 
-                    </li>
-                    <li className="list-group-item h6 fw-light d-flex mb-0">
-                      <i className="bi bi-patch-check-fill text-success me-2"></i>
-                      On Cancellation, You will not get any refund.
-                    </li>
-                  </ul>
+                  </ul> */}
+                  </div>
+                </div>
+              </div>
+              <div className="card border mt-4 mb-4">
+                <div className="card-header border-bottom d-md-flex justify-content-md-between">
+                  <h4 className="card-title mb-0">Organized by</h4>
+                </div>
+                <div className="container mt-3">
+                  <div className="row">
+                    <div className="col-md-3 d-flex justify-content-center align-items-center">
+                      <img
+                        src={eventDetails.logo}
+                        alt={eventDetails.organizer}
+                        className="rounded"
+                        style={{ width: "100px", height: "100px" }}
+                      />
+                    </div>
+                    <div className="col-md-9">
+                      <h5>{eventDetails.organizer}</h5>
+                      <p>{eventDetails.organizerdetails}</p>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
 
-            {/* right side content  */}
             <div className="col-lg-4">
-              <div className="col-md-6 col-xl-12"></div>
-              <div className="card shadow rounded-2 booking-details">
-                {/* Card Header */}
-                <div className="card-header border-bottom">
-                  <h5 className="card-title mb-0">Price Summary</h5>
+              <div className="card shadow rounded-2 booking-details sticky-top ">
+                <div className="card-header border-bottom d-md-flex justify-content-md-between">
+                  <h5 className="card-title mb-0 ">Price Summary</h5>
+                  <button
+                    className="btn btn-link p-0 mb-0"
+                    onClick={() => setShowModal(true)}
+                  >
+                    View Cancellation Policy
+                  </button>
                 </div>
 
-                {/* Card Body */}
                 <div className="card-body">
                   <ul className="list-group list-group-borderless">
                     <li className="list-group-item d-flex justify-content-between align-items-center">
@@ -186,18 +199,18 @@ function BookingDetails() {
                     </li>
                     <li className="list-group-item d-flex justify-content-between align-items-center">
                       <span className="h6 fw-light mb-0">Tax</span>
-                      <span className="fs-5">RM 2.44</span>
+                      <span className="fs-5">RM 10.99</span>
                     </li>
                   </ul>
                 </div>
-
-                {/* Card Footer */}
                 <div className="card-footer border-top">
                   <div className="d-flex justify-content-between align-items-center">
                     <span className="h5 mb-0">Total Price</span>
-                    <span className="h5 mb-0">RM {eventDetails.price + 2.44}</span>
+                    <span className="h5 mb-0">
+                      RM {eventDetails.price + 2.44}
+                    </span>
                   </div>
-                  <div className="btn btn-success text-center mt-3">
+                  <div className="btn btn-success text-center mt-3" onClick={handleBookNow}>
                     Book Now
                   </div>
                 </div>
@@ -206,6 +219,28 @@ function BookingDetails() {
           </div>
         </div>
       </section>
+
+      {/* Modal for Cancellation Policy */}
+      <Modal show={showModal} handleClose={() => setShowModal(false)}>
+        <h3>Cancellation Policy</h3>
+        <ul>
+          <li>Cancellations can be made 24 hours in advance.</li>
+          <li>
+            <p>
+              If you cancel your booking after 24 hours, no refund will be
+              provided. Please ensure your availability before booking.
+            </p>
+          </li>
+          <li>
+            <p>
+              If the event is cancelled by the organizer, a full refund will be
+              issued.
+            </p>
+          </li>
+
+          <p>For more information, contact us at 03-123 4567.</p>
+        </ul>
+      </Modal>
     </div>
   );
 }
