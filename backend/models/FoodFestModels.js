@@ -9,7 +9,11 @@ const foodfestSchema = new Schema({
     time: { type: String, required: true },
     location: { type: String, required: true },
     totalvendors: { type: Number, required: true },
-    image: { type: String, required: true }
+    image: { type: String, required: true },
+    eventdetails: { type: String, required: true },
+    organizer: { type: String, required: true },
+    logo: { type: String, required: true },
+    organizedetails: { type: String, required: true }
 });
 
 module.exports = mongoose.model('FoodFest', foodfestSchema);

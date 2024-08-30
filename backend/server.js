@@ -28,6 +28,8 @@ app.use((err, req, res, next) => {
 
   const foodFestRoutes = require('./routes/foodfestroute');
   app.use('/api/foodfest', foodFestRoutes);
+  const bookVendorRoutes = require('./routes/bookvendorroute');
+  app.use('/api/book-vendor', bookVendorRoutes);
 // Connect to MongoDB and start the server
 // Connect to MongoDB using the URI from environment variables
 mongoose

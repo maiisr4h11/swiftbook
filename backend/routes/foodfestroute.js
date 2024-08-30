@@ -6,10 +6,10 @@ const router = express.Router();
 router.post('/create/foodfest', async (req, res) => {
     const { foodfest_id, eventname, price, date, time, location, totalvendors, image } = req.body;
     try {
-        if (!foodfest_id || !eventname || !price || !date || !time || !location || !totalvendors || !image) {
+        if (!foodfest_id || !eventname || !price || !date || !time || !location || !totalvendors || !image || !logo || !eventdetails || !organizer || !organizedetails) {
             return res.status(400).json({ message: 'All fields are required' });
         }
-        const newFoodFest = new FoodFest({ foodfest_id, eventname, price, date, time, location, totalvendors, image });
+        const newFoodFest = new FoodFest({ foodfest_id, eventname, price, date, time, location, totalvendors, image, logo, eventdetails, organizer, organizedetails });
         await newFoodFest.save();
         res.status(201).json({ message: 'Foodfest created successfully' });
     } catch (error) {
