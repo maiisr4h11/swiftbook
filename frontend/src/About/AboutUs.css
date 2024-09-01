@@ -1,79 +1,908 @@
-/* Fade-in animation */
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-    transform: translateY(20px);
+/* * {
+  margin: 0;
+  padding: 0;
+  text-decoration: none;
+}
+
+nav {
+  display: flex;
+  justify-content: space-between;
+  background: #2f2b2b;
+  height: auto;
+  vertical-align: middle;
+  padding: 0.3% 5%;
+  color: white;
+}
+
+nav div img {
+  height: 20px;
+  width: 20px;
+  vertical-align: middle;
+  padding: 0px 0px;
+}
+
+nav div img:hover {
+  transform: scale(1.3, 1.3);
+  transition: all 0.5s ease;
+  height: 0px;
+  width: 0pc;
+}
+
+header {
+  z-index: 1;
+  height: auto;
+  width: 100%;
+  background: rgb(5, 59, 219);
+  display: flex;
+  justify-content: space-between;
+}
+
+header a img {
+  float: left;
+  height: 75%;
+  margin-top: 10px;
+  width: 56%;
+  vertical-align: middle;
+  border: rgba(255, 255, 255, 0.87) solid;
+  border-radius: 20px;
+  margin-left: 75px;
+}
+
+#c_name {
+  position: absolute;
+  color: white;
+  padding: 2% 2%;
+  font-size: 200%;
+  font-family: fangsong;
+  font-family: -webkit-pictograph;
+  font-weight: bold;
+  text-shadow: 0px 0px 17px rgb(0 0 0);
+}
+
+@media screen and (max-width: 768px) {
+  header #c_name {
+    display: none;
   }
-  to {
-    opacity: 1;
-    transform: translateY(0);
+}
+
+header ul {
+  list-style: none;
+  padding: 2% 2%;
+  display: flex;
+  justify-content: space-around;
+  vertical-align: middle;
+}
+
+header ul a {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+    Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  color: #ffffff;
+  font-weight: 500;
+  font-size: 116%;
+  padding: 10px 13px;
+  text-decoration: none;
+  transition: all 0.5s;
+}
+
+header ul a:hover {
+  color: rgba(131, 220, 255, 0.692);
+}
+
+header ul li {
+  display: flex;
+  vertical-align: middle;
+}
+
+#arr {
+  background: url("https://cdn.iconscout.com/icon/free/png-64/right-arrow-1438234-1216195.png")
+    no-repeat;
+  background-size: cover;
+  margin-top: 20px;
+  margin-left: -5px;
+  width: 15px;
+  height: 15px;
+}
+#brr {
+  background: url("https://cdn.iconscout.com/icon/free/png-64/right-arrow-1438234-1216195.png")
+    no-repeat;
+  background-size: cover;
+  margin-top: 20px;
+  margin-left: -5px;
+  width: 15px;
+  height: 15px;
+}
+
+/* Main Content */
+
+main {
+  display: flex;
+  flex-direction: column;
+  vertical-align: middle;
+  background: transparent;
+}
+
+#front {
+  height: auto;
+  width: 100%;
+  padding: 3% 0%;
+  text-align: center;
+  background: rgb(5, 134, 219);
+  font-family: Georgia, "Times New Roman", Times, serif;
+}
+
+#front h1 {
+  font-family: monospace;
+  color: rgb(255, 255, 255);
+  font-size: 250%;
+  font-family: cursive;
+  text-shadow: 1px 1px 20px rgb(41, 41, 41);
+}
+
+#front p {
+  margin-top: -8%;
+  text-align: center;
+  color: rgb(255, 255, 255);
+  font-size: 130%;
+  padding: 0px 10%;
+  font-family: Georgia, "Times New Roman", Times, serif;
+  letter-spacing: 0.04cm;
+}
+
+#front img {
+  margin-top: -5%;
+  height: 70%;
+  width: 70%;
+}
+
+#first {
+  width: 90%;
+  height: auto;
+  padding: 5% 5%;
+  background: transparent;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+    Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  display: flex;
+  justify-content: space-between;
+}
+
+#first div {
+  text-align: left;
+}
+
+#first p {
+  font-size: 120%;
+  padding-top: 3%;
+  color: rgb(0, 0, 0);
+}
+
+#first h2 {
+  padding: 2%;
+  padding-top: 4%;
+}
+
+#first h1 {
+  padding: 0;
+}
+
+.comm {
+  width: 100%;
+  background: rgb(247, 189, 189);
+  height: 2%;
+  padding: 0.5%;
+}
+
+#comm1 {
+  width: 0%;
+  height: 100%;
+  background: rgb(255, 23, 23);
+  transition: all 5s ease;
+}
+
+.reveal.active #comm1 {
+  width: 90%;
+}
+
+.reveal.active #comm2 {
+  width: 85%;
+}
+
+.reveal.active #comm3 {
+  width: 70%;
+}
+
+#comm2 {
+  width: 0%;
+  height: 100%;
+  background: rgb(241, 44, 44);
+  transition: all 5s ease;
+}
+
+#comm3 {
+  width: 0%;
+  height: 100%;
+  background: rgb(250, 61, 61);
+  transition: all 5s ease;
+}
+
+#second {
+  width: 90%;
+  height: auto;
+  padding: 0px 5%;
+  padding-top: 7%;
+  background: transparent;
+  transition: 1s all;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+    Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+}
+
+.container {
+  display: flex;
+  text-align: left;
+  line-height: 200%;
+}
+
+.container img {
+  width: 30%;
+  height: 20%;
+  margin-top: 5%;
+}
+
+.container h1 {
+  font-size: 220%;
+}
+
+.container h2 {
+  padding-top: 1%;
+  font-size: 170%;
+}
+
+.container p {
+  font-size: 110%;
+  padding-top: 1%;
+}
+
+#third {
+  width: 100%;
+  height: auto;
+  margin-top: 5%;
+  /* background: rgba(31, 90, 252, 0.856); */
+  background: rgba(65, 132, 255, 0.897);
+  padding: 5% 0%;
+}
+
+#third h1,
+h3 {
+  color: white;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+#third_cards {
+  display: flex;
+  justify-content: space-around;
+  padding: 5%;
+}
+
+#third_cards div {
+  margin: 0% 2%;
+  padding: 2% 2%;
+  /* background: linear-gradient(30deg, skyblue, lightgreen); */
+  background: linear-gradient(30deg, rgb(60, 200, 255), rgb(72, 255, 72));
+  border-radius: 20px;
+  line-height: 160%;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+#third_cards div:hover {
+  color: white;
+}
+
+#third_cards div:before {
+  content: "";
+  position: absolute;
+  margin-top: -28px;
+  height: 41%;
+  width: 26.5%;
+  margin-left: -23px;
+  border-radius: 20px;
+  z-index: 1;
+  opacity: 0.2;
+}
+#third_cards div:hover:before {
+  background: rgb(43, 117, 255);
+}
+
+#third_cards div h2 {
+  padding: 8% 0px;
+  font-size: 140%;
+  text-align: center;
+  color: rgb(255, 255, 255);
+}
+
+#third_cards div p {
+  font-size: 120%;
+  text-align: center;
+  color: rgb(234, 255, 247);
+}
+
+#fourth {
+  height: auto;
+  width: 100%;
+  padding: 4% 0%;
+  /* background: rgba(3, 91, 255, 0.822); */
+  background: rgba(65, 132, 255, 0.897);
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+    Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+}
+
+#fourth h2,
+h1 {
+  text-align: center;
+  padding: 2% 20%;
+}
+
+#fourth_cards {
+  display: flex;
+  justify-content: space-evenly;
+  padding: 1% 5%;
+}
+
+#fourth_cards div {
+  margin: 0% 1%;
+  padding: 5% 5%;
+  color: white;
+  box-shadow: 0px 0px 10px 0px rgba(2, 101, 167, 0.801);
+  background: linear-gradient(
+    45deg,
+    rgba(193, 193, 247, 0.74),
+    rgb(0, 91, 165) 30%
+  );
+  text-align: center;
+  transition: all 0.5s ease;
+}
+
+#fourth_cards div p {
+  padding-top: 20px;
+  font-weight: bolder;
+}
+
+#fourth_cards div:hover {
+  background: linear-gradient(
+    40deg,
+    rgb(2, 54, 133) 80%,
+    rgba(109, 135, 255, 0.74) 80%
+  );
+  border-bottom-right-radius: 10%;
+  border-left: 2px rgb(255, 255, 255) solid;
+  border-bottom: 2px rgb(255, 255, 255) solid;
+}
+
+#fifth {
+  background: rgb(5, 134, 219);
+  padding: 50px 40px;
+}
+
+#fifth div {
+  display: flex;
+  justify-content: space-around;
+}
+
+#fifth a {
+  display: flex;
+  justify-content: space-around;
+  color: white;
+  text-decoration: none;
+  margin: 0px 1%;
+}
+
+#fifth img {
+  margin-right: 7%;
+}
+
+#fifth h1 {
+  font-size: 230%;
+  text-align: center;
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+    "Lucida Sans", Arial, sans-serif;
+  padding-bottom: 5%;
+  color: rgb(255, 255, 255);
+}
+
+/* FOOTER */
+#foote {
+  display: flex;
+  justify-content: space-around;
+  background: rgb(5, 134, 219);
+  padding: 0px 50px;
+  padding-top: 20px;
+}
+#foote ul {
+  height: auto;
+  width: 100%;
+  padding-left: 5%;
+  list-style: none;
+}
+
+#foote ul li {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 110%;
+  padding: 5% 2%;
+  text-decoration: none;
+}
+
+#foote ul li a:before {
+  content: "";
+  width: 0%;
+  margin-top: 25px;
+  height: 2px;
+  z-index: 1;
+  position: absolute;
+  background: rgb(255, 127, 127);
+  transition: all 0.2s ease-in;
+}
+
+#foote li a:hover:before {
+  width: 5.7%;
+}
+
+li a {
+  color: white;
+  text-decoration: none;
+}
+
+li a:hover {
+  color: rgb(157, 183, 255);
+}
+
+#foote div {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+#foote div h2 {
+  padding: 5%;
+  color: white;
+  text-decoration: none;
+  font-family: sans-serif;
+}
+
+#foote div span a {
+  padding: 10px 10px;
+  transition: all 2s;
+}
+
+#foote div span a img {
+  padding: 0.5%;
+  height: 80%;
+  width: 10%;
+}
+
+#foote div span a :hover {
+  transform: scale(1.3, 1.3);
+  transition: all 0.5s ease;
+}
+
+.reveal {
+  transform: translateZ(-20px);
+  opacity: 0;
+  transition: all 2s ease;
+}
+
+.reveal.active {
+  transform: translateZ(-20px);
+  opacity: 1;
+} */
+
+/* Global Styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box; /* Added to manage padding and borders */
+  text-decoration: none;
+}
+
+nav {
+  display: flex;
+  justify-content: space-between;
+  background: #2f2b2b;
+  padding: 10px 5%;
+  color: white;
+}
+
+nav div img {
+  height: 20px;
+  width: 20px;
+  transition: transform 0.5s ease;
+}
+
+nav div img:hover {
+  transform: scale(1.3);
+}
+
+header {
+  z-index: 1;
+  width: 100%;
+  background: rgb(5, 59, 219);
+  display: flex;
+  justify-content: space-between;
+  padding: 10px 5%;
+}
+
+header a img {
+  height: auto;
+  max-height: 75px;
+  width: auto;
+  vertical-align: middle;
+  border: solid rgba(255, 255, 255, 0.87) 2px;
+  border-radius: 20px;
+}
+
+#c_name {
+  color: white;
+  font-size: 2rem; /* Changed to rem for better scalability */
+  font-weight: bold;
+  text-shadow: 0 0 17px rgb(0, 0, 0);
+}
+
+@media screen and (max-width: 768px) {
+  #c_name {
+    display: none;
   }
 }
 
-/* Slide-in from left animation */
-@keyframes slideInLeft {
-  from {
-    opacity: 0;
-    transform: translateX(-100px);
-  }
-  to {
-    opacity: 1;
-    transform: translateX(0);
-  }
+header ul {
+  list-style: none;
+  display: flex;
+  justify-content: space-around;
+  padding: 0;
 }
 
-/* Slide-in from bottom animation */
-@keyframes slideInUp {
-  from {
-    opacity: 0;
-    transform: translateY(100px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+header ul a {
+  color: #ffffff;
+  font-weight: 500;
+  font-size: 1.16rem;
+  padding: 10px 13px;
+  transition: color 0.5s;
 }
 
-/* Apply animations with Bootstrap 5 classes */
-.fade-in {
-  animation: fadeIn 1s ease-in-out;
+header ul a:hover {
+  color: rgba(131, 220, 255, 0.692);
 }
 
-.slide-in-left {
-  animation: slideInLeft 1s ease-in-out;
+header ul li {
+  display: flex;
+  align-items: center;
 }
 
-.slide-in-up {
-  animation: slideInUp 1s ease-in-out;
+/* Main Content */
+
+main {
+  display: flex;
+  flex-direction: column;
 }
 
-#top {
-  background-color: 
-  #0067e4;
-  padding: 5px;
-  border-radius: 10px;
-
+#front {
+  width: 100%;
+  padding: 3% 0;
+  text-align: center;
+  background: rgb(5, 134, 219);
+  color: #ffffff;
 }
 
-/* styles.css */
-
-/* Background color for the entire page */
-body {
-  background-color: #ffffff; /* You can change this to any color you like */
-  font-family: Arial, sans-serif;
-  height: 100vh;
-  width: 100vw;
-
+#front h1 {
+  font-family: cursive;
+  font-size: 2.5rem; /* Changed to rem for consistency */
+  text-shadow: 1px 1px 20px rgb(41, 41, 41);
 }
 
-.card:hover {
-  transform: translateY(-10px);
-  background: rgba(255, 255, 255, 0.34);
-  border-radius: 16px;
-  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-  backdrop-filter: blur(8.2px);
-  -webkit-backdrop-filter: blur(8.2px);
-  border: 1px solid rgba(255, 255, 255, 0.18);
-  transition: transform 0.3s ease;
+#front p {
+  font-size: 1.3rem; /* Changed to rem for consistency */
+  padding: 0 10%;
+  font-family: Georgia, serif;
+  letter-spacing: 0.04cm;
+  margin: 1% auto; /* Adjusted margin to ensure proper spacing */
 }
 
+#front img {
+  max-width: 70%; /* Changed to ensure proper image scaling */
+  height: auto;
+  margin-top: 20px;
+}
+
+#first {
+  width: 90%;
+  padding: 5%;
+  display: flex;
+  justify-content: space-between;
+}
+
+#first div {
+  text-align: left;
+}
+
+#first p {
+  font-size: 1.2rem;
+  padding-top: 3%;
+}
+
+#first h2 {
+  padding-top: 4%;
+}
+
+#first h1 {
+  margin: 0;
+}
+
+.comm {
+  width: 100%;
+  background: rgb(247, 189, 189);
+  height: 2%;
+  padding: 0.5%;
+}
+
+#comm1, #comm2, #comm3 {
+  height: 100%;
+  transition: width 5s ease;
+}
+
+#comm1 {
+  width: 0;
+  background: rgb(255, 23, 23);
+}
+
+.reveal.active #comm1 {
+  width: 90%;
+}
+
+#comm2 {
+  width: 0;
+  background: rgb(241, 44, 44);
+}
+
+.reveal.active #comm2 {
+  width: 85%;
+}
+
+#comm3 {
+  width: 0;
+  background: rgb(250, 61, 61);
+}
+
+.reveal.active #comm3 {
+  width: 70%;
+}
+
+#second {
+  width: 90%;
+  padding: 7% 5%;
+  background: transparent;
+}
+
+.container {
+  display: flex;
+  text-align: left;
+  line-height: 1.8; /* Adjusted line height for readability */
+}
+
+.container img {
+  max-width: 30%;
+  height: auto;
+  margin-top: 5%;
+}
+
+.container h1 {
+  font-size: 2.2rem;
+}
+
+.container h2 {
+  padding-top: 1%;
+  font-size: 1.7rem;
+}
+
+.container p {
+  font-size: 1.1rem;
+}
+
+#third {
+  width: 100%;
+  padding: 5% 0;
+  background: rgba(65, 132, 255, 0.897);
+}
+
+#third h1, #third h3 {
+  color: white;
+}
+
+#third_cards {
+  display: flex;
+  justify-content: space-around;
+  padding: 5%;
+}
+
+#third_cards div {
+  margin: 0 2%;
+  padding: 2%;
+  background: linear-gradient(30deg, rgb(60, 200, 255), rgb(72, 255, 72));
+  border-radius: 20px;
+  line-height: 1.6;
+  position: relative;
+}
+
+#third_cards div:hover {
+  color: white;
+}
+
+#third_cards div:before {
+  content: "";
+  position: absolute;
+  top: -28px;
+  height: 41%;
+  width: 26.5%;
+  left: -23px;
+  border-radius: 20px;
+  background: rgba(43, 117, 255, 0.2);
+}
+
+#third_cards div:hover:before {
+  background: rgb(43, 117, 255);
+}
+
+#third_cards div h2 {
+  padding: 8% 0;
+  font-size: 1.4rem;
+  text-align: center;
+  color: rgb(255, 255, 255);
+}
+
+#third_cards div p {
+  font-size: 1.2rem;
+  text-align: center;
+  color: rgb(234, 255, 247);
+}
+
+#fourth {
+  width: 100%;
+  padding: 4% 0;
+  background: rgba(65, 132, 255, 0.897);
+}
+
+#fourth h2, #fourth h1 {
+  text-align: center;
+  padding: 2% 20%;
+}
+
+#fourth_cards {
+  display: flex;
+  justify-content: space-evenly;
+  padding: 1% 5%;
+}
+
+#fourth_cards div {
+  margin: 0 1%;
+  padding: 5%;
+  color: white;
+  box-shadow: 0 0 10px rgba(2, 101, 167, 0.8);
+  background: linear-gradient(45deg, rgba(193, 193, 247, 0.74), rgb(0, 91, 165) 30%);
+  text-align: center;
+  transition: background 0.5s ease, border 0.5s ease;
+}
+
+#fourth_cards div p {
+  padding-top: 20px;
+  font-weight: bolder;
+}
+
+#fourth_cards div:hover {
+  background: linear-gradient(40deg, rgb(2, 54, 133) 80%, rgba(109, 135, 255, 0.74) 80%);
+  border-bottom-right-radius: 10%;
+  border-left: 2px solid rgb(255, 255, 255);
+  border-bottom: 2px solid rgb(255, 255, 255);
+}
+
+#fifth {
+  background: rgb(5, 134, 219);
+  padding: 50px 40px;
+}
+
+#fifth div {
+  display: flex;
+  justify-content: space-around;
+}
+
+#fifth a {
+  display: flex;
+  justify-content: center;
+  color: white;
+  text-decoration: none;
+  margin: 0 1%;
+}
+
+#fifth img {
+  margin-right: 7%;
+}
+
+#fifth h1 {
+  font-size: 2.3rem;
+  text-align: center;
+  color: rgb(255, 255, 255);
+  font-family: "Trebuchet MS", Arial, sans-serif;
+  padding-bottom: 5%;
+}
+
+/* FOOTER */
+#foote {
+  display: flex;
+  justify-content: space-around;
+  background: rgb(5, 134, 219);
+  padding: 20px 50px;
+}
+
+#foote ul {
+  list-style: none;
+  padding-left: 5%;
+}
+
+#foote ul li {
+  font-size: 1.1rem;
+  padding: 5% 2%;
+}
+
+#foote ul li a:before {
+  content: "";
+  width: 0;
+  height: 2px;
+  background: rgb(255, 127, 127);
+  transition: width 0.2s ease-in;
+}
+
+#foote li a:hover:before {
+  width: 5.7%;
+}
+
+li a {
+  color: white;
+  text-decoration: none;
+}
+
+li a:hover {
+  color: rgb(157, 183, 255);
+}
+
+#foote div {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+#foote div h2 {
+  padding: 5%;
+  color: white;
+  font-family: sans-serif;
+}
+
+#foote div span a {
+  padding: 10px;
+  transition: transform 0.5s ease;
+}
+
+#foote div span a img {
+  height: 80%;
+  width: 10%;
+}
+
+#foote div span a:hover {
+  transform: scale(1.3);
+}
+
+.reveal {
+  transform: translateZ(-20px);
+  opacity: 0;
+  transition: opacity 2s ease, transform 2s ease;
+}
+
+.reveal.active {
+  transform: translateZ(0);
+  opacity: 1;
+}

@@ -1,127 +1,219 @@
-/* Set a minimum width for the entire page */
+Ensure all elements use border-box sizing
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: 'Poppins', sans-serif;
+}
+
 body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
   min-width: 300px;
+  background-image: url('');
+  background-size: cover;
+}
+
+.message-box {
+  width: 100%; /* Takes the full width of its container */
+  min-height: 100px; /* Minimum height for the textarea */
+  max-height: 300px; /* Optional maximum height to prevent it from growing too large */
+  overflow: auto; /* Hides the scrollbar */
+  resize: vertical; /* Disables the manual resize handle */
+  border-radius: 6px;
+  font-size: 18px;
+  padding: 0 15px;
+  border: 2px solid #fff;
+  background: transparent;
+  color: #fff;
+  outline: none;
 }
 
 
 /* Background image container */
 .background-container {
-    background-image: url('C:\Users\Le Mann\Desktop\Final Year Project\Final Year Project Files\swiftbook\frontend\public\background.jpg'); /* Replace with your image path */
-    background-size: cover;
-    background-position: center;
-    min-height: 100vh;
-    padding: 20px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  background-image: url(); /* Replace with your image path */
+  background-size: cover;
+  background-position: center;
+  min-height: 100vh;
+  padding: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Form container with glass effect */
+.glass-form {
+  background: rgba(255, 255, 255, 0.3); /* Semi-transparent background */
+  border-radius: 10px; /* Rounded corners */
+  padding: 20px;
+  backdrop-filter: blur(8px); /* Glass effect */
+  -webkit-backdrop-filter: blur(8px); /* For Safari */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Subtle shadow for depth */
+  max-width: 800px; /* Max width for form container */
+  min-width: 650px;
+  width: 100%;
+  min-height: 600px; /* Minimum height */
+  height: 100%; /* Allow height to adjust based on content */
+  position: relative;
+  display: flex; /* Highlighted change */
+  flex-direction: column; /* Highlighted change */
+  justify-content: flex-start; /* Highlighted change */
+}
+
+/* Center the heading */
+.glass-form h2 {
+  text-align: center;
+}
+
+/* Form input styling */
+.glass-form .form-control {
+  background: rgba(255, 255, 255, 0.4); /* Semi-transparent input background */
+  border: 2px solid rgba(0, 0, 0, 0.2); /* Remove default border */
+  border-radius: 20px; /* Rounded corners for inputs */
+  box-shadow: none; /* Remove default shadow */
+  width: 100%; /* Make inputs take full width */
+  outline: none;
+  font-size: 1em;
+  padding: 10px; /* Adjust padding for better spacing */
+  margin-bottom: 15px; /* Add margin to separate inputs */
+}
+
+/* Remove position absolute from inputs */
+.glass-form .form-control:focus {
+  background: rgba(255, 255, 255, 0.5); /* Slightly more opaque on focus */
+  border-color: #007bff; /* Border color for focus state */
+}
+
+/* Top popup container */
+.top-popup {
+  position: fixed;
+  top: 20px; /* Position the popup near the top of the page */
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 1050; /* Ensure it's on top of other content */
+}
+
+/* The actual popup */
+.popuptext {
+  visibility: hidden;
+  width: 375px;
+  background-color: rgba(255, 255, 255, 0.9); /* Glass effect background */
+  color: #000;
+  text-align: center;
+  border-radius: 6px;
+  padding: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Subtle shadow for depth */
+  position: relative; /* Make room for the close button */
+}
+
+/* Close button styling */
+.popup-close-btn {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: none;
+  border: none;
+  font-size: 24px;
+  font-weight: bold;
+  color: #000;
+  cursor: pointer;
+  padding: 0;
+  line-height: 1;
+}
+
+/* Optional: Close button hover effect */
+.popup-close-btn:hover {
+  color: #dc3545; /* Change color on hover */
+}
+
+/* Popup buttons */
+.popuptext button {
+  margin: 5px;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 4px;
+  color: #fff;
+  cursor: pointer;
+}
+
+.popuptext .btn-success {
+  background-color: #3b22a0;
+  padding: 10px 20px; /* Adjusts the padding for the button size */
+  font-size: 16px; /* Adjusts the font size */
+  border-radius: 5px; /* Optional: Rounds the corners */
+  width: 100%; /* Optional: Makes the button full-width within its container */
+  max-width: 100px; /* Optional: Sets a maximum width for the button */
+  height: 50px; /* Optional: Sets a fixed height for the button */
+}
+
+.popuptext .btn-danger {
+  background-color: #ab1322;
+  padding: 10px 20px; /* Adjusts the padding for the button size */
+  font-size: 16px; /* Adjusts the font size */
+  border-radius: 5px; /* Optional: Rounds the corners */
+  width: 100%; /* Optional: Makes the button full-width within its container */
+  max-width: 100px; /* Optional: Sets a maximum width for the button */
+  height: 50px; /* Optional: Sets a fixed height for the button */
+}
+
+/* Toggle this class - hide and show the popup */
+.popuptext.show {
+  visibility: visible;
+  -webkit-animation: slideDownFadeIn 1s ease-in-out;
+  animation: slideDownFadeIn 1s ease-in-out;
+}
+
+/* Add animation (slide down and fade in) */
+@-webkit-keyframes slideDownFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
   }
-  
-  /* Form container with glass effect */
-  .glass-form {
-    background: rgba(255, 255, 255, 0.3); /* Semi-transparent background */
-    border-radius: 10px; /* Rounded corners */
-    padding: 20px;
-    backdrop-filter: blur(8px); /* Glass effect */
-    -webkit-backdrop-filter: blur(8px); /* For Safari */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Subtle shadow for depth */
-    max-width: 600px; /* Max width for form container */
-    min-width: 375px;
-    width: 100%;
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
-  
-  /* Form input styling */
-  .glass-form .form-control {
-    background: rgba(255, 255, 255, 0.4); /* Semi-transparent input background */
-    border: none; /* Remove default border */
-    border-radius: 6px; /* Rounded corners for inputs */
-    box-shadow: none; /* Remove default shadow */
+}
+
+@keyframes slideDownFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
   }
-  
-  .glass-form .form-control:focus {
-    background: rgba(255, 255, 255, 0.5); /* Slightly more opaque on focus */
-    border-color: #007bff; /* Border color for focus state */
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
-  
-  /* Top popup container */
-  .top-popup {
-    position: fixed;
-    top: 20px; /* Position the popup near the top of the page */
-    left: 50%;
-    transform: translateX(-50%);
-    z-index: 1050; /* Ensure it's on top of other content */
-  }
-  
-  /* The actual popup */
-  .popuptext {
-    visibility: hidden;
-    width: 375px;
-    background-color: rgba(255, 255, 255, 0.9); /* Glass effect background */
-    color: #000;
-    text-align: center;
-    border-radius: 6px;
-    padding: 20px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Subtle shadow for depth */
-  }
-  
-  /* Popup buttons */
-  .popuptext button {
-    margin: 5px;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 4px;
-    color: #fff;
-    cursor: pointer;
-  }
-  
-  .popuptext .btn-success {
-    background-color: #28a745;
-  }
-  
-  .popuptext .btn-danger {
-    background-color: #dc3545;
-  }
-  
-  /* Toggle this class - hide and show the popup */
-  .popuptext.show {
-    visibility: visible;
-    -webkit-animation: slideDownFadeIn 1s ease-in-out;
-    animation: slideDownFadeIn 1s ease-in-out;
-  }
-  
-  /* Add animation (slide down and fade in) */
-  @-webkit-keyframes slideDownFadeIn {
-    from {
-      opacity: 0;
-      transform: translateY(-20px);
-    }
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
-  }
-  
-  @keyframes slideDownFadeIn {
-    from {
-      opacity: 0;
-      transform: translateY(-20px);
-    }
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
-  }
-  
-  /* Ensure the parent container of the cards is a flexbox */
+}
+
+/* Ensure the parent container of the cards is a flexbox */
 .row {
   display: flex;
   flex-wrap: wrap; /* Ensures responsiveness */
+  gap: 10px 0px;
 }
 
 /* Make both cards have equal height */
-.glass-form, .card {
+.glass-form,
+.card {
   flex: 1; /* Make both cards take up equal space */
   min-height: 300px; /* Adjust based on your desired minimum height */
   display: flex;
   flex-direction: column;
   justify-content: space-between;
 }
+
+/* Card body styling */
+.card-body2 {
+  text-align: justify; /* Justify text to fill the container */
+  display: flex;
+  flex-direction: column; /* Ensure content is stacked vertically */
+  align-items: center; /* Center content horizontally */
+  justify-content: center; /* Center content vertically */
+}
+
