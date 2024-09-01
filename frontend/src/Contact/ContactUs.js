@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import axios from 'axios'; // Import axios for HTTP requests
-import 'bootstrap/dist/css/bootstrap.min.css'; // Import Bootstrap CSS
 import './ContactUs.css'; // Import your CSS file
 
 const ContactUs = () => {
