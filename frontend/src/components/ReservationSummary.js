@@ -74,7 +74,7 @@ const ReservationSummary = () => {
             </div>
             <div className="col-md-4 button-group">
               <button className="btn btn-primary btn-sm" onClick={handleGoToEventSpace}>Event Space</button>
-              <button className="btn btn-danger btn-sm mb-2" onClick={handleCancel}>Cancel</button>
+              <button className="btn btn-danger btn-sm mb-2" onClick={handleCancel}>Cancel Reservation</button>
               <div className="mt-4 cancellation-policy">
                 <h6>Cancellation Policy:</h6>
                 <p>Please note that cancellations made within 24 hours of the reservation time may be subject to a fee. We recommend contacting us as soon as possible if you need to cancel or reschedule your reservation.</p>

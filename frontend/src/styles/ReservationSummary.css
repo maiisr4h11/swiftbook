@@ -1,10 +1,12 @@
 /* ReservationSummary.css */
 
+/* Container adjustments */
 .reservation-summary-container {
   max-width: 80%; /* Adjust width of the container */
   margin: auto;
 }
 
+/* Card styling */
 .card {
   border-radius: 12px;
 }
@@ -24,13 +26,25 @@
   margin-bottom: 0.5rem;
 }
 
+/* Button styling */
 .btn-primary, .btn-danger {
-  font-size: 0.875rem; /* Smaller font size for buttons */
-  padding: 0.5rem 1rem; /* Adjust padding for smaller buttons */
+  font-size: 0.875rem; /* Consistent font size for buttons */
+  padding: 0.5rem 1rem; /* Consistent padding for buttons */
+  border-radius: 8px; /* Ensure buttons have rounded corners */
+  width: 100%; /* Make buttons the same width */
 }
 
 .btn-primary:hover, .btn-danger:hover {
   opacity: 0.8;
+}
+
+/* Specific button size adjustments if needed */
+.btn-primary {
+  width: 100%; /* Ensure width is consistent with the Event Space button */
+}
+
+.btn-danger {
+  width: 100%; /* Ensure width is consistent with the Event Space button */
 }
 
 .text-center {
@@ -72,20 +86,14 @@
   gap: 0.5rem; /* Adjust the gap between buttons */
 }
 
-.card-body .row {
-  display: flex;
-  flex-wrap: wrap;
-}
-
-.col-md-8 {
-  margin-bottom: 1rem; /* Add some spacing below the text area */
-}
-
+/* Cancellation policy styling */
 .cancellation-policy {
-  background-color: #f8f9fa;
-  border: 1px solid #e9ecef;
+  background-color: #343a40; /* Dark background color */
+  color: #f8f9fa; /* Light text color */
+  border: 1px solid #495057; /* Slightly lighter border */
   border-radius: 8px;
   padding: 1rem;
+  margin-top: 2rem; /* Space above the policy box */
 }
 
 .cancellation-policy h6 {

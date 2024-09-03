@@ -1,109 +1,67 @@
-/* Card styling for the shared card */
+/* General card styling */
 .card {
-  border-radius: 8px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  margin-bottom: 20px;
+  border: none; /* Remove default border */
+  border-radius: 12px; /* Rounded corners */
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3); /* Shadow for 3D effect */
+  overflow: hidden; /* Ensure rounded corners are effective */
+}
+
+/* Card body styling */
+.card-body {
+  background: linear-gradient(145deg, #2a2a2a, #1a1a1a); /* Gradient background for depth */
+  color: #ffffff; /* Light color for text */
+  text-align: justify; /* Adjust text alignment */
+  padding: 1.5rem; /* Increase padding for better spacing */
 }
 
 /* Card header styling */
 .card-header {
-  background-color: #f8f9fa;
-  border-bottom: 1px solid #dee2e6;
+  background-color: #343a40; /* Dark background for the header */
+  border-bottom: 1px solid #444; /* Subtle border for separation */
+  color: #ffffff; /* Light color for text */
+  padding: 1rem; /* Padding for better spacing */
 }
 
-/* Policy and Share section layout */
-.policy-share-card {
-  background-color: #f8f9fa;
-  padding: 20px;
-  border-radius: 8px;
-}
-
-.policy-share-card h5 {
-  margin-bottom: 15px;
-  color: #343a40;
-}
-
-.policy-share-card p {
-  color: #495057;
-}
-
-/* Share section styling */
-.policy-share-card .btn {
-  margin-bottom: 10px;
-}
-
-.policy-share-card .btn-outline-primary {
-  border-color: #007bff;
-  color: #007bff;
-}
-
-.policy-share-card .btn-outline-primary:hover {
-  background-color: #007bff;
-  color: #fff;
-}
-
-/* Grid layout for policy and share sections */
-.policy-share-row {
-  display: flex;
-  flex-wrap: wrap;
-}
-
-.policy-share-column {
-  flex: 1;
-  padding: 15px;
-}
-
-.policy-share-column h5 {
-  margin-bottom: 10px;
-}
-
-/* Calendar styling */
+/* Remove the border from the calendar */
 .react-calendar {
-  border: 1px solid #ddd;
-  border-radius: 8px;
-}
-
-.react-calendar__tile {
-  border-radius: 8px;
+  border: none; /* Remove border */
+  border-radius: 8px; /* Rounded corners */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Shadow for 3D effect */
 }
 
 .react-calendar__tile--active {
   background-color: #007bff;
-  color: #fff;
+  color: #ffffff;
 }
 
-.react-calendar__tile--now {
-  border: 2px solid #007bff;
+/* Styling for icons */
+.icon {
+  vertical-align: middle;
+  margin-right: 5px;
 }
 
-.react-calendar__tile--disabled {
-  background-color: #f8f9fa;
-  color: #6c757d;
-  cursor: not-allowed;
-}
-
-.react-calendar__month-view__days__day {
-  border-radius: 8px;
-}
-
-/* Highlight reserved dates */
-.reserved {
-  background-color: #dc3545;
-  color: #fff;
-}
-
-/* Highlight selected date */
-.selected {
+/* Button styling */
+.btn-primary {
   background-color: #007bff;
-  color: #fff;
-}
-
-/* Sticky booking card */
-.sticky-top {
-  position: sticky;
-  top: 20px;
-}
-
-.sticky-top .card {
   border-color: #007bff;
+}
+
+.btn-primary:hover {
+  background-color: #0056b3;
+  border-color: #004080;
+}
+
+/* Additional styling */
+.text-light {
+  color: #ffffff; /* Light color for text on dark backgrounds */
+}
+
+/* Centering text inside the card */
+.card-title {
+  text-align: center; /* Center text */
+}
+
+/* Add padding and margin for better spacing */
+.card-body p {
+  margin-bottom: 15px;
 }

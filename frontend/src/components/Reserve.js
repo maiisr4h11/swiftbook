@@ -28,7 +28,6 @@ const Reserve = () => {
   }, []);
 
   useEffect(() => {
-    // Set the event space name from the eventSpace prop
     if (eventSpace) {
       setEventSpaceName(eventSpace.name_event_space);
     }
@@ -71,101 +70,104 @@ const Reserve = () => {
   };
 
   return (
-    <div className="container mt-5">
-      <div className="row">
-        <div className="col-md-8 offset-md-2">
-          <div className="reserveForm">
-            <h1>Reserve <strong>{eventSpaceName}</strong></h1>
-            <form onSubmit={handleSubmit}>
-              <div className="mb-3">
-                <label htmlFor="customer_name" className="form-label">Name</label>
-                <input
-                  type="text"
-                  className="form-control"
-                  id="customer_name"
-                  value={customerName}
-                  readOnly
-                />
-              </div>
+    <div className="reserve-container">
+      <div className="image-container">
+        <img src={eventSpace?.image2} alt="Image 2" className="image2" />
+        <img src={eventSpace?.image3} alt="Image 3" className="image3" />
+      </div>
+      <div className="form-container">
+        <div className="reserve-form">
+          {/* Event Space Name Display */}
+          <h1>Reserve <strong>{eventSpaceName}</strong></h1>
+          <form onSubmit={handleSubmit}>
+            <div className="mb-3">
+              <label htmlFor="customer_name" className="form-label">Name</label>
+              <input
+                type="text"
+                className="form-control"
+                id="customer_name"
+                value={customerName}
+                readOnly
+              />
+            </div>
 
-              <div className="mb-3">
-                <label htmlFor="customer_email" className="form-label">Email</label>
-                <input
-                  type="email"
-                  className="form-control"
-                  id="customer_email"
-                  value={customerEmail}
-                  readOnly
-                />
-              </div>
+            <div className="mb-3">
+              <label htmlFor="customer_email" className="form-label">Email</label>
+              <input
+                type="email"
+                className="form-control"
+                id="customer_email"
+                value={customerEmail}
+                readOnly
+              />
+            </div>
 
-              <div className="mb-3">
-                <label htmlFor="customer_phone" className="form-label">Phone</label>
-                <input
-                  type="text"
-                  className="form-control"
-                  id="customer_phone"
-                  value={customerPhone}
-                  readOnly
-                />
-              </div>
+            <div className="mb-3">
+              <label htmlFor="customer_phone" className="form-label">Phone</label>
+              <input
+                type="text"
+                className="form-control"
+                id="customer_phone"
+                value={customerPhone}
+                readOnly
+              />
+            </div>
 
-              <div className="mb-3">
-                <label htmlFor="date_reservation" className="form-label">Reservation Date</label>
-                <input
-                  type="date"
-                  className="form-control"
-                  id="date_reservation"
-                  value={formattedReservationDate}
-                  readOnly
-                />
-              </div>
+            <div className="mb-3">
+              <label htmlFor="date_reservation" className="form-label">Reservation Date</label>
+              <input
+                type="date"
+                className="form-control"
+                id="date_reservation"
+                value={formattedReservationDate}
+                readOnly
+              />
+            </div>
 
-              <div className="mb-3">
-                <label htmlFor="time_reservation" className="form-label">Reservation Time</label>
-                <input
-                  type="text"
-                  className="form-control"
-                  id="time_reservation"
-                  value={reservationTime}
-                  readOnly
-                />
-              </div>
+            <div className="mb-3">
+              <label htmlFor="time_reservation" className="form-label">Reservation Time</label>
+              <input
+                type="text"
+                className="form-control"
+                id="time_reservation"
+                value={reservationTime}
+                readOnly
+              />
+            </div>
 
-              <div className="mb-3">
-                <label htmlFor="remarks" className="form-label">Remarks</label>
-                <textarea
-                  className="form-control"
-                  id="remarks"
-                  rows="3"
-                  value={remarks}
-                  onChange={(e) => setRemarks(e.target.value)}
-                />
-              </div>
+            <div className="mb-3">
+              <label htmlFor="remarks" className="form-label">Remarks</label>
+              <textarea
+                className="form-control"
+                id="remarks"
+                rows="1"
+                value={remarks}
+                onChange={(e) => setRemarks(e.target.value)}
+              />
+            </div>
 
-              <button type="submit" className="btn btn-primary" disabled={loading}>
-                {loading ? 'Submitting...' : 'Confirm Reservation and Pay'}
-              </button>
+            <button type="submit" className="btn btn-primary" disabled={loading}>
+              {loading ? 'Submitting...' : 'Confirm Reservation and Pay'}
+            </button>
 
-              {error && <div className="alert alert-danger mt-3">{error}</div>}
-            </form>
+            {error && <div className="alert alert-danger mt-3">{error}</div>}
+          </form>
 
-            {/* Success Modal */}
-            <div className={`modal fade ${showModal ? 'show' : ''}`} style={{ display: showModal ? 'block' : 'none' }} tabIndex="-1" role="dialog">
-              <div className="modal-dialog" role="document">
-                <div className="modal-content text-dark">
-                  <div className="modal-header">
-                    <h5 className="modal-title">Reservation and Payment Successful</h5>
-                    <button type="button" className="btn-close" onClick={handleCloseModal} aria-label="Close"></button>
-                  </div>
-                  <div className="modal-body">
-                    <p>Your reservation has been confirmed for <strong>{eventSpaceName}</strong>.</p>
-                    <p>Your reference number is <strong>{reference_number}</strong>.</p>
-                    <p>We will contact you soon with further details.</p>
-                  </div>
-                  <div className="modal-footer">
-                    <button type="button" className="btn btn-primary" onClick={handleCloseModal}>Close</button>
-                  </div>
+          {/* Success Modal */}
+          <div className={`modal fade ${showModal ? 'show' : ''}`} style={{ display: showModal ? 'block' : 'none' }} tabIndex="-1" role="dialog">
+            <div className="modal-dialog" role="document">
+              <div className="modal-content text-dark">
+                <div className="modal-header">
+                  <h5 className="modal-title">Reservation and Payment Successful</h5>
+                  <button type="button" className="btn-close" onClick={handleCloseModal} aria-label="Close"></button>
+                </div>
+                <div className="modal-body">
+                  <p>Your reservation has been confirmed for <strong>{eventSpaceName}</strong>.</p>
+                  <p>Your reference number is <strong>{reference_number}</strong>.</p>
+                  <p>We will contact you soon with further details.</p>
+                </div>
+                <div className="modal-footer">
+                  <button type="button" className="btn btn-primary" onClick={handleCloseModal}>OK</button>
                 </div>
               </div>
             </div>
