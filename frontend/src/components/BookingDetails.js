@@ -180,7 +180,7 @@ function BookingDetails() {
             </div>
 
             <div className="col-lg-4">
-              <div className="card shadow rounded-2 booking-details sticky-top ">
+              <div className="card shadow rounded-2 booking-details ">
                 <div className="card-header border-bottom d-md-flex justify-content-md-between">
                   <h5 className="card-title mb-0 ">Price Summary</h5>
                   <button
@@ -207,7 +207,7 @@ function BookingDetails() {
                   <div className="d-flex justify-content-between align-items-center">
                     <span className="h5 mb-0">Total Price</span>
                     <span className="h5 mb-0">
-                      RM {eventDetails.price + 2.44}
+                      RM {eventDetails.price + 10.99}
                     </span>
                   </div>
                   <div className="btn btn-success text-center mt-3" onClick={handleBookNow}>

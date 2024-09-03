@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import axios from "axios"; // Import Axios
+import axios from "axios";
 import "../CSS/FoodFest.css";
 import AOS from "aos";
 import "aos/dist/aos.css";
@@ -42,13 +42,15 @@ function FoodFest() {
   const [location, setLocation] = useState("");
   const [startDate, setStartDate] = useState("");
   const [foodfests, setFoodfests] = useState([]);
+  const [visibleCount, setVisibleCount] = useState(6); // Number of items to display initially
+  const [showAll, setShowAll] = useState(false); // Track if all items are visible
   const navigate = useNavigate();
 
-  const locations = ["San Jacinto, USA", "Los Angeles, USA", "New York, USA"]; // Example locations
+  const locations = ["San Jacinto, USA", "Los Angeles, USA", "New York, USA"];
 
   useEffect(() => {
     AOS.init({
-      duration: 2000, // Customize the duration if needed
+      duration: 2000,
     });
 
     axios
@@ -65,6 +67,16 @@ function FoodFest() {
     navigate(`/booking-details/${id}`);
   };
 
+  const handleSeeMore = () => {
+    setVisibleCount(foodfests.length); // Show all items
+    setShowAll(true);
+  };
+
+  const handleShowLess = () => {
+    setVisibleCount(6); // Show initial number of items
+    setShowAll(false);
+  };
+
   const settings = {
     dots: true,
     infinite: true,
@@ -74,6 +86,7 @@ function FoodFest() {
     nextArrow: <NextArrow />,
     prevArrow: <PrevArrow />,
   };
+
   if (!foodfests) {
     return (
       <div
@@ -196,25 +209,7 @@ function FoodFest() {
                   ))}
                 </select>
               </div>
-              <div className="input-group me-3">
-                <span
-                  className="input-group-text"
-                  style={{ backgroundColor: "#2c2c2c", border: "none" }}
-                >
-                  <CalendarToday style={{ color: "#808080" }} />
-                </span>
-                <input
-                  type="date"
-                  className="form-control"
-                  value={startDate}
-                  onChange={handleDateChange}
-                  style={{
-                    backgroundColor: "#2c2c2c",
-                    color: "#fff",
-                    border: "none",
-                  }}
-                />
-              </div>
+             
               <button
                 className="btn"
                 style={{
@@ -232,9 +227,9 @@ function FoodFest() {
       </section>
 
       <section className="event-list" data-aos="fade-up">
-        <div className="container mt-5 mb-5 list" data-aos="fade-up">
-          <div className="row" data-aos="fade-up">
-            {foodfests.map((foodfest) => (
+        <div className="container mt-5 mb-5 list">
+          <div className="row">
+            {foodfests.slice(0, visibleCount).map((foodfest) => (
               <div className="col-md-4" key={foodfest._id}>
                 <div className="card text-center mb-4 foodfest">
                   <div className="card-body">
@@ -246,8 +241,7 @@ function FoodFest() {
                     <h5 className="card-title text-center mt-2 fs-4">
                       {foodfest.eventname}
                     </h5>
-                    <p className="card-text">{foodfest.date}</p>{" "}
-                    {/* Add more p tags as needed */}
+                    <p className="card-text">{foodfest.date}</p>
                     <button
                       className="btn btn-primary text-center"
                       onClick={() => handleViewDetails(foodfest._id)}
@@ -258,6 +252,23 @@ function FoodFest() {
                 </div>
               </div>
             ))}
+          </div>
+          <div className="text-center mt-4">
+            {showAll ? (
+              <button
+                className="btn btn-secondary"
+                onClick={handleShowLess}
+              >
+                Show Less
+              </button>
+            ) : (
+              <button
+                className="btn btn-primary"
+                onClick={handleSeeMore}
+              >
+                See More
+              </button>
+            )}
           </div>
         </div>
       </section>
