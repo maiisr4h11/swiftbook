@@ -1,25 +1,18 @@
-import React from 'react'
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import 'bootstrap/dist/css/bootstrap.min.css';
-import Login from './components/Login';
-import Signup from './components/Signup';
-import './App.css'
-
+import { react, useState } from 'react';
+import { BrowserRouter, Routes, Route, } from 'react-router-dom';
+import AuthSlider from './components/AuthSlider';
 
 
 function App() {
+
+  const [user, setUser] = useState(null);
   return (
-    <div className="App">
-
-      <Router>
-        <Routes>
-          <Route path="/login" element={<Login />} />
-          <Route path="/signup" element={<Signup />} />
-        </Routes>
-      </Router>
-
-    </div>
-  )
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<AuthSlider setUser={setUser} />} />
+      </Routes>
+    </BrowserRouter>
+  );
 }
 
-export default App
+export default App;
