@@ -126,26 +126,27 @@ router.patch('/update-password/:id', async (req, res) => {
   const { currentPassword, newPassword } = req.body;
 
   try {
-    const user = await User.findById(id);
-    if (!user) {
-      return res.status(404).json({ error: 'User not found' });
-    }
+      // Find the user by ID
+      const user = await User.findById(id);
+      if (!user) {
+          return res.status(404).json({ error: 'User not found' });
+      }
 
-    // Check if the current password is correct
-    const isMatch = await bcrypt.compare(currentPassword, user.password);
-    if (!isMatch) {
-      return res.status(400).json({ error: 'Current password is incorrect' });
-    }
+      // Check if the current password is correct
+      const isMatch = await bcrypt.compare(currentPassword, user.password);
+      if (!isMatch) {
+          return res.status(400).json({ error: 'Current password is incorrect' });
+      }
 
-    // Hash the new password and update it
-    const hashedPassword = await bcrypt.hash(newPassword, 10);
-    user.password = hashedPassword;
-    await user.save();
+      // Hash the new password and update it
+      const hashedPassword = await bcrypt.hash(newPassword, 10);
+      user.password = hashedPassword;
+      await user.save();
 
-    res.json({ message: 'Password updated successfully' });
+      res.json({ message: 'Password updated successfully' });
   } catch (error) {
-    console.error('Error updating password:', error);
-    res.status(500).json({ error: 'Failed to update password' });
+      console.error('Error updating password:', error);
+      res.status(500).json({ error: 'Failed to update password' });
   }
 });
 

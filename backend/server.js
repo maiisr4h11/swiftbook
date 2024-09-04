@@ -23,6 +23,8 @@ app.use('/api/reservations', reservationRoutes);
 const eventspaceRoutes = require('./routes/eventspaceroute');
 app.use('/api/eventspaces', eventspaceRoutes);
 
+const bookVendorRoutes = require('./routes/bookvendorroute');
+app.use('/api/book-vendor', bookVendorRoutes);
 
 
 app.use((err, req, res, next) => {
