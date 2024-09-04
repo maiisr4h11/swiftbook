@@ -1,3 +1,5 @@
+import React from "react"
+import "../Gstyles.css"
 
 function Footer() {
     return (

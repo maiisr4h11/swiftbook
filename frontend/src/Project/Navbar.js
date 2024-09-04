@@ -1,5 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import '../Gstyles.css';
+
+
 
 function Navbar({ user, handleLogout }) {
     return (
@@ -30,21 +33,8 @@ function Navbar({ user, handleLogout }) {
                                 <li className='nav-item nav-custom'>
                                     <Link className='nav-link active' aria-current='page' to='/home'>Home</Link>
                                 </li>
-                                <li className='nav-item dropdown nav-custom'>
-                                    <Link
-                                        className='nav-link dropdown-toggle'
-                                        to='#'
-                                        role='button'
-                                        data-bs-toggle='dropdown'
-                                        aria-expanded='false'
-                                    >
-                                        Events
-                                    </Link>
-                                    <ul className='dropdown-menu dropdown-menu-end'>
-                                        <li><Link className='dropdown-item nav-custom' to='/foodfest'>Food Fest</Link></li>
-                                        <li><hr className='dropdown-divider' /></li>
-                                        <li><Link className='dropdown-item nav-custom' to='/bookvendor'>Book Vendors</Link></li>
-                                    </ul>
+                                <li className='nav-item nav-custom'>
+                                    <Link className='nav-link' to='/foodfest'>Food Fest</Link>
                                 </li>
                                 <li className='nav-item nav-custom'>
                                     <Link className='nav-link' to='/eventspace'>Event Space</Link>
@@ -71,7 +61,7 @@ function Navbar({ user, handleLogout }) {
                                         <li><Link className='dropdown-item nav-custom' to='/setting'>Profile</Link></li>
                                         <li><Link className='dropdown-item nav-custom' to='/security'>Security</Link></li>
                                         <li><hr className='dropdown-divider' /></li>
-                                        <li><Link className='dropdown-item nav-custom' to='/login'onClick={handleLogout}>Log Out</Link></li>
+                                        <li><Link className='dropdown-item nav-custom' to='/login' onClick={handleLogout}>Log Out</Link></li>
                                     </ul>
                                 </li>
                             </ul>

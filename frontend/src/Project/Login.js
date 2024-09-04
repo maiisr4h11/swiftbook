@@ -1,5 +1,4 @@
-// src/Project/Login.js
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import AOS from 'aos';
@@ -8,11 +7,13 @@ import 'aos/dist/aos.css';
 function Login({ setUser }) {
     const navigate = useNavigate();
 
-    AOS.init({
-        duration: 1200,
-        once: false,
-        mirror: false,
-    });
+    useEffect(() => {
+        AOS.init({
+            duration: 1200,
+            once: false,
+            mirror: false,
+        });
+    }, []);
 
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
@@ -68,7 +69,7 @@ function Login({ setUser }) {
                         style={{ borderRadius: "15px" }}
                     />
                     <p className="mt-3">Don't have an account?
-                        <Link to="/signup" className="text-decoration-none text-primary">Sign Up</Link>
+                        <Link to="/signup" className="text-decoration-none m-3" style={{fontWeight:"500", color:"#3bf4fb"}}>Sign Up</Link>
                     </p>
                 </div>
                 <div className="col-lg-6 col-md-12 d-flex flex-column justify-content-center align-items-center p-5 bg-dark rounded shadow" data-aos="fade-down">
@@ -107,15 +108,12 @@ function Login({ setUser }) {
                         {error && <div className="alert alert-danger">{error}</div>}
                         <button
                             type="submit"
-                            className="btn w-100"
+                            className="btn btn-primary w-100"
                             disabled={loading}
                         >
                             {loading ? 'Logging in...' : 'Login'}
                         </button>
                         <hr className='mt-5 mb-4 border-secondary-subtle' />
-                        <div className="text-end">
-                            <a href="#!" className="link-light text-decoration-none">Forgot password</a>
-                        </div>
                     </form>
                 </div>
             </div>

@@ -62,31 +62,30 @@ function Signup() {
     };
 
     return (
-        <div className='container d-flex justify-content-center align-items-center vh-100'>
-            <div className="form-container signup-panel d-flex justify-content-evenly align-items-center p-5 shadow rounded bg-secondary w-100 vh-50">
-                <div className='image-container left object-fit'>
-                    <img 
-                        src='logofav.jpg' 
-                        alt="signup-image" 
-                        className="img-fluid"
-                        style={{borderRadius:"15px"}}
+        <div className='container d-flex justify-content-center align-items-center vh-100 my-3' data-aos="flip-left">
+            <div className="form-container signup-panel d-flex flex-column flex-md-row justify-content-center align-items-center p-3 p-md-5 shadow rounded bg-secondary w-100">
+                <div className='image-container left object-fit w-100 w-md-50 me-md-4 mb-4 mb-md-0'>
+                    <img
+                        src='logofav.jpg'
+                        alt="signup-image"
+                        className="img-fluid w-100"
+                        style={{ borderRadius: "15px" }}
                     />
-                    <p className="mt-3 text-light">
-                        Already have an account? 
-                        <Link to="/login" 
-                        className="text-decoration-none text-primary">Log In</Link>
+                    <p className="mt-3">
+                        Already have an account?
+                        <Link to="/login" className="text-decoration-none m-3" style={{ fontWeight: "500", color: "#3bf4fb" }}>Log In</Link>
                     </p>
                 </div>
-                <div className="d-flex flex-column justify-content-center align-items-center rounded shadow p-5 bg-dark text-light login-page">
-                    <div className="mb-5">
-                        <h2 className='display-4 p-3'>Sign Up</h2>
+                <div className="form-section d-flex flex-column justify-content-center align-items-center rounded shadow p-3 p-md-5 bg-dark w-100 w-md-50">
+                    <div className="mb-4 mb-md-5">
+                        <h2 className='display-4 p-3 text-light'>Sign Up</h2>
                     </div>
                     {isSubmitted ? (
                         <div className="success-message text-center">{message}</div>
                     ) : (
-                        <form onSubmit={handleSubmit} className="w-100">
+                        <form onSubmit={handleSubmit} className="w-100" data-aos="fade-up">
                             <div className="mb-3">
-                                <label className="form-label">Full Name:</label>
+                                <label className="form-label text-light">Full Name:</label>
                                 <input
                                     type="text"
                                     name="fullName"
@@ -98,7 +97,7 @@ function Signup() {
                                 {errors.fullName && <span className="error text-danger">{errors.fullName}</span>}
                             </div>
                             <div className="mb-3">
-                                <label className="form-label">Email:</label>
+                                <label className="form-label text-light">Email:</label>
                                 <input
                                     type="email"
                                     name="email"
@@ -110,7 +109,7 @@ function Signup() {
                                 {errors.email && <span className="error text-danger">{errors.email}</span>}
                             </div>
                             <div className="mb-3">
-                                <label className="form-label">Password:</label>
+                                <label className="form-label text-light">Password:</label>
                                 <input
                                     type="password"
                                     name="password"
@@ -122,7 +121,7 @@ function Signup() {
                                 {errors.password && <span className="error text-danger">{errors.password}</span>}
                             </div>
                             <div className="mb-3">
-                                <label className="form-label">Confirm Password:</label>
+                                <label className="form-label text-light">Confirm Password:</label>
                                 <input
                                     type="password"
                                     name="confirmPassword"
@@ -133,8 +132,8 @@ function Signup() {
                                 />
                                 {errors.confirmPassword && <span className="error text-danger">{errors.confirmPassword}</span>}
                             </div>
-                            <button type="submit" className="btn w-100">Sign Up</button>
-                            {message && <p>{message}</p>}
+                            <button type="submit" className="btn btn-primary w-100">Sign Up</button>
+                            {message && <p className="mt-3 text-light">{message}</p>}
                         </form>
                     )}
                 </div>

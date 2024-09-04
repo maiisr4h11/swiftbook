@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom'; // Import Link from react-router-dom
+import "../Gstyles.css";
 
-function Security({ user }) {  // Added user as a prop
+const Security = ({ user }) => {
     const [currentPassword, setCurrentPassword] = useState('');
     const [newPassword, setNewPassword] = useState('');
     const [confirmPassword, setConfirmPassword] = useState('');
@@ -14,7 +16,7 @@ function Security({ user }) {  // Added user as a prop
         }
 
         try {
-            const response = await fetch(`/api/users/update-password/${user.userId}`, {
+            const response = await fetch(`http://localhost:5000/api/users/update-password/${user.userId}`, {
                 method: 'PATCH',
                 headers: {
                     'Content-Type': 'application/json',
@@ -31,52 +33,58 @@ function Security({ user }) {  // Added user as a prop
             }
         } catch (error) {
             console.error('Error updating password:', error);
+            alert('An error occurred. Please try again.');
         }
     };
 
     return (
-        <div>
-            <div className="container-xl px-4 mt-4">
-                <h1 className="my-4">Security</h1>
-                <form onSubmit={handleChangePassword}>
-                    <div className="mb-3">
-                        <label htmlFor="currentPassword" className="form-label">Current Password</label>
-                        <input
-                            type="password"
-                            className="form-control"
-                            id="currentPassword"
-                            value={currentPassword}
-                            onChange={(e) => setCurrentPassword(e.target.value)}
-                            required
-                        />
-                    </div>
-                    <div className="mb-3">
-                        <label htmlFor="newPassword" className="form-label">New Password</label>
-                        <input
-                            type="password"
-                            className="form-control"
-                            id="newPassword"
-                            value={newPassword}
-                            onChange={(e) => setNewPassword(e.target.value)}
-                            required
-                        />
-                    </div>
-                    <div className="mb-3">
-                        <label htmlFor="confirmPassword" className="form-label">Confirm New Password</label>
-                        <input
-                            type="password"
-                            className="form-control"
-                            id="confirmPassword"
-                            value={confirmPassword}
-                            onChange={(e) => setConfirmPassword(e.target.value)}
-                            required
-                        />
-                    </div>
-                    <button type="submit" className="btn btn-primary">Change Password</button>
-                </form>
-            </div>
+        <div className="container mt-5">
+            <nav className="nav nav-borders">
+                <Link className="nav-link active ms-0" to="/Setting">Profile</Link>
+                <Link className="nav-link" to="/Setting">Security</Link>
+            </nav>
+            <hr className="mt-0 mb-4" /> {/* Add the horizontal rule */}
+            <h2>Change Password</h2>
+            <form onSubmit={handleChangePassword}>
+                <div className="form-group">
+                    <label htmlFor="currentPassword">Current Password</label>
+                    <input
+                        type="password"
+                        className="form-control"
+                        id="currentPassword"
+                        value={currentPassword}
+                        onChange={(e) => setCurrentPassword(e.target.value)}
+                        required
+                    />
+                </div>
+                <div className="form-group">
+                    <label htmlFor="newPassword">New Password</label>
+                    <input
+                        type="password"
+                        className="form-control"
+                        id="newPassword"
+                        value={newPassword}
+                        onChange={(e) => setNewPassword(e.target.value)}
+                        required
+                    />
+                </div>
+                <div className="form-group">
+                    <label htmlFor="confirmPassword">Confirm New Password</label>
+                    <input
+                        type="password"
+                        className="form-control"
+                        id="confirmPassword"
+                        value={confirmPassword}
+                        onChange={(e) => setConfirmPassword(e.target.value)}
+                        required
+                    />
+                </div>
+                <button type="submit" className="btn btn-primary mt-3">
+                    Change Password
+                </button>
+            </form>
         </div>
     );
-}
+};
 
 export default Security;

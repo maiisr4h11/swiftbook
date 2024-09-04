@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import axios from 'axios';
-// import 'bootstrap/dist/css/bootstrap.min.css';
-// import 'bootstrap/dist/js/bootstrap.bundle.min';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import 'bootstrap/dist/js/bootstrap.bundle.min';
 import { Avatar } from '@mui/material';
-// import '../styles/ReservationSummary.css'; // Updated CSS file
+import "../Gstyles.css"
 
 const ReservationSummary = () => {
   const { id } = useParams(); // Get the reservation ID from the URL
@@ -57,7 +57,7 @@ const ReservationSummary = () => {
   return (
     <div className="container mt-5 reservation-summary-container">
       <div className="d-flex align-items-center mb-4">
-        <Avatar alt="Logo" src='/logo.jpg' sx={{ width: 56, height: 56 }} />
+        <Avatar alt="Logo" src="logofav.jpg" sx={{ width: 56, height: 56 }} />
         <h1 className="ms-3">Reservation Summary</h1>
       </div>
       <div className="card shadow-lg rounded">
@@ -73,7 +73,7 @@ const ReservationSummary = () => {
             </div>
             <div className="col-md-4 button-group">
               <button className="btn btn-primary btn-sm" onClick={handleGoToEventSpace}>Event Space</button>
-              <button className="btn btn-danger btn-sm mb-2" onClick={handleCancel}>Cancel</button>
+              <button className="btn btn-danger btn-sm mb-2" onClick={handleCancel}>Cancel Reservation</button>
               <div className="mt-4 cancellation-policy">
                 <h6>Cancellation Policy:</h6>
                 <p>Please note that cancellations made within 24 hours of the reservation time may be subject to a fee. We recommend contacting us as soon as possible if you need to cancel or reschedule your reservation.</p>

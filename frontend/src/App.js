@@ -11,6 +11,8 @@ import Security from './Project/Security';
 import FoodFest from './Project/FoodFest';
 import BookVendor from './Project/BookVendor';
 import BookingDetails from './Project/BookingDetails';
+import BookingSummary from './Project/BookingSummary';
+import Payment from './Project/Payment';
 import Reserve from './Project/Reserve';
 import EventSpaceDetails from './Project/Details';
 import EventSpaces from './Project/Eventspace';
@@ -56,6 +58,8 @@ const App = () => {
           <Route path="/foodfest" element={<ProtectedRoute element={FoodFest} user={user} />} />
           <Route path="/bookvendor" element={<ProtectedRoute element={BookVendor} user={user} />} />
           <Route path="/bookingdetails/:id" element={<ProtectedRoute element={BookingDetails} user={user} />} />
+          <Route path="/payment" element={<ProtectedRoute element={Payment} user={user} />} />
+          <Route path="/bookingsummary" element={<ProtectedRoute element={BookingSummary} user={user} />} />
           <Route path="/reserve" element={<ProtectedRoute element={Reserve} user={user} />} />
           <Route path="/eventspace" element={<ProtectedRoute element={EventSpaces} user={user} />} />
           <Route path="/eventspace/:event_space_ID" element={<ProtectedRoute element={EventSpaceDetails} user={user} />} />

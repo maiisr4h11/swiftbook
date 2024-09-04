@@ -1,0 +1,427 @@
+Global Styles body {
+    background-color: rgba(0, 0, 0, 0.7);
+    /* Darker background */
+    color: #eee;
+    /* Light grey text color */
+    margin: 0;
+    padding: 0;
+}
+
+/* Button Styles */
+.btn-primary,
+.btn-danger,
+.btn-success {
+    font-size: 0.875rem;
+    padding: 0.5rem 1rem;
+    border-radius: 8px;
+    width: 100%;
+}
+
+.btn-primary {
+    background-color: #ce2bff !important;
+    border: none !important;
+}
+
+.btn-success {
+    background-color: #d0a98f !important;
+    border: none !important;
+}
+
+.btn-danger {
+    background-color: #dc3545;
+    border-color: #dc3545;
+}
+
+.btn-primary:disabled,
+.btn-primary:hover,
+.btn-danger:hover {
+    background-color: #0056b3;
+    opacity: 0.8;
+}
+
+/*=== Navbar Styles start ===*/
+.navbar {
+    background-color: #ad49e1;
+    border-radius: 20px;
+    font-weight: 900;
+}
+
+.nav-link {
+    color: white;
+}
+
+.nav-item:hover {
+    background-color: #d0a98f;
+    border-radius: 20px;
+}
+
+.nav-link:hover {
+    color: black;
+    animation: all;
+}
+
+.dropdown-menu {
+    background-color: #d0a98f !important;
+}
+
+.dropdown-item {
+    font-weight: 900;
+}
+
+.dropdown-item:hover {
+    background-color: #9649cb;
+    color: white;
+}
+
+/*=== Navbar Styles end ===*/
+
+/*=== Carousel Styles start ===*/
+.carousel-item {
+    height: 500px;
+}
+
+.carousel-item img {
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+    border-radius: 20px;
+}
+
+/*=== Carousel Styles end ===*/
+
+
+/*=== foodfest css start ===*/
+
+.banner {
+    background-size: cover;
+    background-position: center;
+    width: 100%;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    display: block;
+}
+
+.overlay-image {
+    position: absolute;
+    top: 50px;
+    left: 0;
+    width: 100%;
+}
+
+.card .slider {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    object-fit: cover;
+}
+
+.slider-img.foodfest {
+    width: 100%;
+    height: auto;
+    /* Or set to a fixed height like 400px */
+    max-height: 400px;
+    /* Adjust to your needs */
+    object-fit: cover;
+    /* Keeps aspect ratio */
+}
+
+/*=== foodfest css end ===*/
+
+
+/* === Aboutus css === */
+/* === Contactus css === */
+
+/* Form container with glass effect */
+.glass-form {
+    background: rgba(255, 255, 255, 0.3);
+    /* Semi-transparent background */
+    border-radius: 10px;
+    /* Rounded corners */
+    padding: 20px;
+    backdrop-filter: blur(8px);
+    /* Glass effect */
+    -webkit-backdrop-filter: blur(8px);
+    /* For Safari */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    /* Subtle shadow for depth */
+    max-width: 600px;
+    /* Max width for form container */
+    min-width: 375px;
+    width: 100%;
+}
+
+/* Form input styling */
+.glass-form .form-control {
+    background: rgba(255, 255, 255, 0.4);
+    /* Semi-transparent input background */
+    border: none;
+    /* Remove default border */
+    border-radius: 6px;
+    /* Rounded corners for inputs */
+    box-shadow: none;
+    /* Remove default shadow */
+}
+
+.glass-form .form-control:focus {
+    background: rgba(255, 255, 255, 0.5);
+    /* Slightly more opaque on focus */
+    border-color: #007bff;
+    /* Border color for focus state */
+}
+
+/* Top popup container */
+.top-popup {
+    position: fixed;
+    top: 20px;
+    /* Position the popup near the top of the page */
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 1050;
+    /* Ensure it's on top of other content */
+}
+
+/* The actual popup */
+.popuptext {
+    visibility: hidden;
+    width: 375px;
+    background-color: rgba(255, 255, 255, 0.9);
+    /* Glass effect background */
+    color: #000;
+    text-align: center;
+    border-radius: 6px;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    /* Subtle shadow for depth */
+}
+
+/* Popup buttons */
+.popuptext button {
+    margin: 5px;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    color: #fff;
+    cursor: pointer;
+}
+
+.popuptext .btn-success {
+    background-color: #0008ff;
+}
+
+.popuptext .btn-danger {
+    background-color: #dc3545;
+}
+
+/* Toggle this class - hide and show the popup */
+.popuptext.show {
+    visibility: visible;
+    -webkit-animation: slideDownFadeIn 1s ease-in-out;
+    animation: slideDownFadeIn 1s ease-in-out;
+}
+
+/* Add animation (slide down and fade in) */
+@-webkit-keyframes slideDownFadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes slideDownFadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Ensure the parent container of the cards is a flexbox */
+.row {
+    display: flex;
+    flex-wrap: wrap;
+    /* Ensures responsiveness */
+}
+
+/* Make both cards have equal height */
+.glass-form,
+.card {
+    flex: 1;
+    /* Make both cards take up equal space */
+    min-height: 300px;
+    /* Adjust based on your desired minimum height */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+/* === Aboutus css end === */
+/* === Contactus css end === */
+
+
+/* === eventspace css start === */
+/* Sticky search bar styling */
+.search-bar {
+    position: sticky;
+    top: 0;
+    background: rgba(0, 0, 0, 0.8);
+    /* Darker background to blend with page */
+    z-index: 1020;
+    padding: 10px 0;
+    /* Adjust padding for better visibility */
+}
+
+/* CenterMode slider container */
+.slider-container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 40px 20px;
+}
+
+/* Slider text content */
+.text-content {
+    text-align: center;
+    margin: 0 auto;
+    max-width: 800px;
+    /* Ensure it doesn’t stretch too wide */
+}
+
+.slider-title,
+.main-title {
+    font-size: 2.5rem;
+    /* Adjust font size as needed */
+    color: #e0e0e0;
+    /* Light grey text color */
+    margin-bottom: 15px;
+    font-weight: 700;
+}
+
+.slider-description,
+.main-description {
+    font-size: 1.125rem;
+    color: #b0b0b0;
+    /* Slightly darker grey text color */
+    margin: 0 auto;
+    line-height: 1.5;
+    max-width: 100%;
+    /* Ensure full width usage */
+}
+
+/* Slider item styling */
+.slide-item {
+    text-align: center;
+}
+
+.slide-content {
+    background: #000;
+    /* Black background for slide content */
+    border-radius: 5px;
+    box-shadow: none;
+    padding: 5px;
+    position: relative;
+}
+
+.slide-img {
+    width: 100%;
+    height: auto;
+}
+
+.rank {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    background-color: #6a0dad;
+    /* Purple background */
+    color: #fff;
+    padding: 5px 10px;
+    border-radius: 50%;
+    font-size: 1.25rem;
+    font-weight: 700;
+}
+
+/* Slick arrow styling */
+.slick-prev,
+.slick-next {
+    width: 40px;
+    height: 40px;
+    background-color: #000;
+    /* Black background */
+    border-radius: 50%;
+    color: #ffffff;
+    font-size: 24px;
+    line-height: 40px;
+    text-align: center;
+    cursor: pointer;
+    z-index: 1;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.slick-prev {
+    left: 10px;
+}
+
+.slick-next {
+    right: 10px;
+}
+
+/* Slick dots styling */
+.slick-dots li button:before {
+    font-size: 12px;
+    color: #6a0dad;
+    /* Purple dots */
+}
+
+/* Contact section styling */
+.contact-section {
+    padding: 20px;
+    background: rgba(0, 0, 0, 0.5);
+    /* Black background with some transparency */
+    border-radius: 10px;
+    text-align: center;
+}
+
+/* Button styling */
+button,
+.MuiButton-root {
+    color: #000000;
+    /* White text color */
+    border: 2px solid #6a0dad;
+    /* Purple border */
+    padding: 5px;
+    background-color: transparent;
+    /* Transparent background */
+}
+
+/* Links */
+a {
+    color: #6a0dad;
+    /* Purple link color */
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+/* Ensure text inside cards is visible */
+.card-content,
+.card-body {
+    color: #e0e0e0;
+    /* Light grey text color */
+}
+
+.Cont {
+    border: 10px solid #ce2bff;
+}

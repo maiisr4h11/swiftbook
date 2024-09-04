@@ -1,7 +1,9 @@
+// src/Project/Layout.js
 import React from 'react';
 import { useLocation, useNavigate, Outlet } from 'react-router-dom';
 import Navbar from './Navbar';
 import Footer from './Footer';
+
 
 const Layout = ({ user, setUser }) => {
     const location = useLocation();
@@ -19,7 +21,6 @@ const Layout = ({ user, setUser }) => {
         <div>
             {showNavbarAndFooter && <Navbar user={user} handleLogout={handleLogout} />}
             <main>
-                {/* Outlet will render the current matched child route */}
                 <Outlet />
             </main>
             {showNavbarAndFooter && <Footer />}
