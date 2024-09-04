@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import React, { useState, useEffect } from 'react';
 import { BrowserRouter, Route, Routes, Navigate } from 'react-router-dom';
 import {jwtDecode} from 'jwt-decode'; // Corrected import
@@ -19,34 +20,20 @@ import EventSpaces from './Project/Eventspace';
 import ReservationSummary from './Project/ReservationSummary';
 import ProtectedRoute from './Project/ProtectedRoute';
 import Layout from './Project/Layout';
+=======
+import { react, useState } from 'react';
+import { BrowserRouter, Routes, Route, } from 'react-router-dom';
+import AuthSlider from './components/AuthSlider';
+>>>>>>> origin
 
-import 'slick-carousel/slick/slick.css';
-import 'slick-carousel/slick/slick-theme.css';
 
-const App = () => {
+function App() {
+
   const [user, setUser] = useState(null);
-
-  useEffect(() => {
-    const token = localStorage.getItem('token');
-    console.log('Token:', token);
-    if (token) {
-      try {
-        const decoded = jwtDecode(token);
-        setUser({
-          userId: decoded.userId,
-          name: decoded.name
-        });
-      } catch (error) {
-        console.error('Invalid token:', error);
-        localStorage.removeItem('token');
-        setUser(null); // Ensure state is cleared if token is invalid
-      }
-    }
-  }, []);
-
   return (
     <BrowserRouter>
       <Routes>
+<<<<<<< HEAD
         <Route path="/" element={<Navigate to="/login" />} />
         <Route path="/login" element={<Login setUser={setUser} />} />
         <Route path="/signup" element={<Signup setUser={setUser} />} />
@@ -69,6 +56,9 @@ const App = () => {
           <Route path="/aboutus" element={<ProtectedRoute element={AboutUs} user={user} />} />
           <Route path="/contactus" element={<ProtectedRoute element={ContactUs} user={user} />} />
         </Route>
+=======
+        <Route path="/" element={<AuthSlider setUser={setUser} />} />
+>>>>>>> origin
       </Routes>
     </BrowserRouter>
   );
