@@ -225,7 +225,7 @@ export default function AboutUs() {
           </p><br></br>
           <div id="testimonials" className="container test">
             <blockquote className="blockquote">
-              <p className="mb-0">
+              <p className="mb-3">
                 "Swift Book handled our wedding planning from start to finish,
                 and it was absolutely perfect! They listened to our vision and
                 executed it flawlessly."
@@ -235,7 +235,7 @@ export default function AboutUs() {
               </footer>
             </blockquote>
             <blockquote className="blockquote">
-              <p className="mb-0">
+              <p className="mb-3">
                 "Our corporate event was a huge success thanks to Swift Book's
                 meticulous planning and coordination. Highly recommended!"
               </p>
@@ -244,7 +244,7 @@ export default function AboutUs() {
               </footer>
             </blockquote>
             <blockquote className="blockquote">
-              <p className="mb-0">
+              <p className="mb-3">
                 "Swift Book’s team went above and beyond to ensure our event
                 was a hit. Their attention to detail and creativity were
                 remarkable."

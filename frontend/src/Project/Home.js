@@ -118,12 +118,12 @@ const Home = () => {
                     <Typography variant="body2" color="textSecondary">
                       <AttachMoney /> Starting price RM{card.price} per day
                     </Typography>
-                    <div className="btn btn-primary">
+                    {/* <div className="btn btn-primary">
                       <Link to={`/eventspace/${card.event_space_ID}`}
                         style={{ textDecoration: "none", color:"black", fontWeight:"550" }}>
                         Reserve Now
                       </Link>
-                    </div>
+                    </div> */}
                   </CardContent>
                 </Card>
               </div>
@@ -150,9 +150,9 @@ const Home = () => {
                     <CardContent>
                       <Typography variant="h6">{foodfest.eventname}</Typography>
                       <Typography variant="body2" color="textSecondary">{foodfest.date}</Typography>
-                      <button className="btn btn-primary" onClick={() => navigate(`/bookingdetails/${foodfest._id}`)} style={{ width: "100%", color:"black", fontWeight:"550" }}>
+                      {/* <button className="btn btn-primary" onClick={() => navigate(`/bookingdetails/${foodfest._id}`)} style={{ width: "100%", color:"black", fontWeight:"550" }}>
                         View Details
-                      </button>
+                      </button> */}
                     </CardContent>
                   </Card>
                 </div>

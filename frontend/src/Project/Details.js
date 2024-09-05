@@ -131,7 +131,7 @@ const EventSpaceDetails = () => {
                   <div>
                     <Link
                       to="#"
-                      className="btn btn-outline-light"
+                      className="btn btn-outline-dark"
                       onClick={handleClick}
                     >
                       {showImages ? "View Less" : "View More Images"}
@@ -183,7 +183,7 @@ const EventSpaceDetails = () => {
                       )}`}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="btn btn-outline-light mb-2"
+                      className="btn btn-outline-dark mb-2"
                     >
                       Share on Facebook
                     </a>
@@ -193,7 +193,7 @@ const EventSpaceDetails = () => {
                       )}`}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="btn btn-outline-light"
+                      className="btn btn-outline-dark"
                     >
                       Share on Twitter
                     </a>
