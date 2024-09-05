@@ -20,10 +20,30 @@ import ReservationSummary from './Project/ReservationSummary';
 import ProtectedRoute from './Project/ProtectedRoute';
 import Layout from './Project/Layout';
 
+import 'slick-carousel/slick/slick.css';
+import 'slick-carousel/slick/slick-theme.css';
 
-function App() {
-
+const App = () => {
   const [user, setUser] = useState(null);
+
+  useEffect(() => {
+    const token = localStorage.getItem('token');
+    console.log('Token:', token);
+    if (token) {
+      try {
+        const decoded = jwtDecode(token);
+        setUser({
+          userId: decoded.userId,
+          name: decoded.name
+        });
+      } catch (error) {
+        console.error('Invalid token:', error);
+        localStorage.removeItem('token');
+        setUser(null); // Ensure state is cleared if token is invalid
+      }
+    }
+  }, []);
+
   return (
     <BrowserRouter>
       <Routes>
