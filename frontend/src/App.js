@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 import React, { useState, useEffect } from 'react';
 import { BrowserRouter, Route, Routes, Navigate } from 'react-router-dom';
 import {jwtDecode} from 'jwt-decode'; // Corrected import
@@ -20,11 +19,6 @@ import EventSpaces from './Project/Eventspace';
 import ReservationSummary from './Project/ReservationSummary';
 import ProtectedRoute from './Project/ProtectedRoute';
 import Layout from './Project/Layout';
-=======
-import { react, useState } from 'react';
-import { BrowserRouter, Routes, Route, } from 'react-router-dom';
-import AuthSlider from './components/AuthSlider';
->>>>>>> origin
 
 
 function App() {
@@ -33,7 +27,6 @@ function App() {
   return (
     <BrowserRouter>
       <Routes>
-<<<<<<< HEAD
         <Route path="/" element={<Navigate to="/login" />} />
         <Route path="/login" element={<Login setUser={setUser} />} />
         <Route path="/signup" element={<Signup setUser={setUser} />} />
@@ -56,9 +49,6 @@ function App() {
           <Route path="/aboutus" element={<ProtectedRoute element={AboutUs} user={user} />} />
           <Route path="/contactus" element={<ProtectedRoute element={ContactUs} user={user} />} />
         </Route>
-=======
-        <Route path="/" element={<AuthSlider setUser={setUser} />} />
->>>>>>> origin
       </Routes>
     </BrowserRouter>
   );

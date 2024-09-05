@@ -425,3 +425,8 @@ a:hover {
 .Cont {
     border: 10px solid #ce2bff;
 }
+
+.react-calendar__tile--active {
+    background-color: #007bff;
+    color: #ffffff;
+  }
